@@ -1,4 +1,4 @@
-﻿using Game.Runtime;
+﻿using Game.Runtime.Systems.Inventory;
 using UnityEngine;
 
 namespace Game.Runtime.Data.Attributes
@@ -8,7 +8,7 @@ namespace Game.Runtime.Data.Attributes
     /// </summary>
     [CreateAssetMenu(fileName = CreateMenus.HARVESTABLE_ATTRIBUTES_FILENAME,
         menuName = CreateMenus.HARVESTABLE_ATTRIBUTES_MENUNAME, order = CreateMenus.HARVESTABLE_ATTRIBUTES_ORDER)]
-    public class HarvestableAttributes : Attributes
+    public sealed class HarvestableAttributes : Attributes, IItem
     {
         #region Private Fields
 
@@ -34,6 +34,13 @@ namespace Game.Runtime.Data.Attributes
         public Sprite HarvestableSprite => harvestableSprite;
         public float RespawnTime => respawnTime;
         public GameObject HarvestEffect => harvestEffect;
+
+        #endregion
+
+        #region IItem Implementation
+
+        public string Name => harvestableName;
+        public Sprite Icon => harvestableSprite;
 
         #endregion
     }
