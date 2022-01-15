@@ -1,7 +1,7 @@
 ﻿using Game.Editor;
 using UnityEngine;
 
-namespace Game.Core
+namespace Game.Runtime.Core
 {
     /// <summary>
     /// A class that allows for components to reference the GameManager even if it is not in the same scene at editor time.

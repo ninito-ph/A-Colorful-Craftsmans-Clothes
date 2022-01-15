@@ -1,4 +1,4 @@
-﻿using Game.Core;
+﻿using Game.Runtime.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace Game.Core
+namespace Game.Runtime.Core
 {
     public class LoadingScreenManager : Singleton<LoadingScreenManager>
     {
