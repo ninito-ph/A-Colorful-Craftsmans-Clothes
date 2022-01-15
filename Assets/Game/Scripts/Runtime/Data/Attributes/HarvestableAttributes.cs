@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Game.Runtime;
+using UnityEngine;
 
-namespace Game.Editor.Data.Attributes
+namespace Game.Runtime.Data.Attributes
 {
     /// <summary>
     /// A class that contains the attributes of a harvestable

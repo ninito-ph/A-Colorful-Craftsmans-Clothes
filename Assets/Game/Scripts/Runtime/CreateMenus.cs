@@ -1,4 +1,4 @@
-﻿namespace Game.Editor
+﻿namespace Game.Runtime
 {
     /// <summary>
     /// A Create attribute class that concentrates all values of all Create attributes for easier editing.

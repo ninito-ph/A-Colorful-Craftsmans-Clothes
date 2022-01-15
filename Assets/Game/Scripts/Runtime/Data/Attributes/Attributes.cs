@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Game.Editor.Data.Attributes
+namespace Game.Runtime.Data.Attributes
 {
     /// <summary>
     /// A base class that serves as a base for any attribute collection of any entity 
