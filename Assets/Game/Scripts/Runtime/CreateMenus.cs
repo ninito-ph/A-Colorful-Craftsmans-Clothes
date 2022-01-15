@@ -8,5 +8,13 @@
         public const string GAME_MANAGER_PROXY_FILENAME = "GameManager Proxy";
         public const string GAME_MANAGER_PROXY_MENUNAME = "Ninito/Game/GameManager Proxy";
         public const int GAME_MANAGER_PROXY_ORDER = 0;
+
+        #region Attributes
+
+        public const string HARVESTABLE_ATTRIBUTES_FILENAME = "Harvestable Attributes";
+        public const string HARVESTABLE_ATTRIBUTES_MENUNAME = "Ninito/Game/Attributes/Harvestable Attributes";
+        public const int HARVESTABLE_ATTRIBUTES_ORDER = 0;
+
+        #endregion
     }
 }
