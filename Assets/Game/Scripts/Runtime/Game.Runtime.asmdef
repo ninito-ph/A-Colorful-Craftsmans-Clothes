@@ -1,6 +1,6 @@
 {
     "name": "Game",
-    "rootNamespace": "Game",
+    "rootNamespace": "Game.Runtime",
     "references": [
         "GUID:f8488ac59a4b5844e9dcf36cfe59e561",
         "GUID:f32f6beaf6389984880109a93c1e00a8",
