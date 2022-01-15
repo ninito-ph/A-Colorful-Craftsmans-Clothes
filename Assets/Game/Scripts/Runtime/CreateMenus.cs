@@ -9,6 +9,14 @@
         public const string GAME_MANAGER_PROXY_MENUNAME = "Ninito/Game/GameManager Proxy";
         public const int GAME_MANAGER_PROXY_ORDER = 0;
 
+        #region Registries
+
+        public const string HARVESTABLE_REGISTRY_FILENAME = "Harvestable Registry";
+        public const string HARVESTABLE_REGISTRY_MENUNAME = "Ninito/Game/Registries/Harvestable Registry";
+        public const int HARVESTABLE_REGISTRY_ORDER = 0;
+
+        #endregion
+
         #region Attributes
 
         public const string HARVESTABLE_ATTRIBUTES_FILENAME = "Harvestable Attributes";
