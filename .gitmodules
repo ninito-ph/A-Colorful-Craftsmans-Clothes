@@ -4,3 +4,6 @@
 [submodule "Assets/Plugins/ScriptableArchitecture"]
 	path = Assets/Plugins/ScriptableArchitecture
 	url = https://github.com/ninito-ph/Scriptable-Architecture
+[submodule "Assets/Plugins/MinJect"]
+	path = Assets/Plugins/MinJect
+	url = https://github.com/ninito-ph/MinJect
