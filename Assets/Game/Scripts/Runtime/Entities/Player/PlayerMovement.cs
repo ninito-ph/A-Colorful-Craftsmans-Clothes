@@ -10,7 +10,7 @@ namespace Game.Runtime.Entities.Player
         #region Private Fields
 
         [SerializeField]
-        private float _speed = 5f;
+        private float speed = 5f;
 
         #endregion
 
@@ -24,7 +24,7 @@ namespace Game.Runtime.Entities.Player
         public void Move(float horizontal, float vertical)
         {
             Vector3 movement = new Vector3(horizontal, vertical, 0);
-            transform.Translate(movement * _speed * Time.deltaTime);
+            transform.Translate(movement * speed * Time.deltaTime);
         }
 
         #endregion
