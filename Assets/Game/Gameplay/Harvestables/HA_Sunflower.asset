@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: A yellow sunflower
   harvestableName: Sunflower
-  harvestableSprite: {fileID: -495735234126749927, guid: 6edab2b5d7fe6164b8a8880c63764845, type: 3}
+  harvestableSprite: {fileID: -5154733350214931134, guid: 05aca71ae87684949863318c6a51ae03, type: 3}
   respawnTime: 3
   harvestEffect: {fileID: 0}

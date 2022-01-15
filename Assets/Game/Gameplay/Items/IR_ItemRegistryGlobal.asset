@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f5de3b05174a5b976b6a3da42c9ab7, type: 3}
   m_Name: IR_ItemRegistryGlobal
   m_EditorClassIdentifier: 
+  totalItemCount: 0
