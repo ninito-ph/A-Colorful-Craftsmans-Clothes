@@ -14,6 +14,10 @@
         public const string HARVESTABLE_REGISTRY_FILENAME = "Harvestable Registry";
         public const string HARVESTABLE_REGISTRY_MENUNAME = "Ninito/Game/Registries/Harvestable Registry";
         public const int HARVESTABLE_REGISTRY_ORDER = 0;
+        
+        public const string ITEM_REGISTRY_FILENAME = "Item Registry";
+        public const string ITEM_REGISTRY_MENUNAME = "Ninito/Game/Registries/Item Registry";
+        public const int ITEM_REGISTRY_ORDER = 0;
 
         #endregion
 
