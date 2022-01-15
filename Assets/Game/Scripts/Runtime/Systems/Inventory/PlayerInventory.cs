@@ -17,7 +17,7 @@ namespace Game.Runtime.Systems.Inventory
         [SerializeField]
         private ItemRegistry itemRegistry;
         
-        private SerializedDictionary<IItem, int> _itemsByQuantity;
+        private SerializedDictionary<IItem, int> _itemsByQuantity = new SerializedDictionary<IItem, int>();
 
         #endregion
 
@@ -27,6 +27,22 @@ namespace Game.Runtime.Systems.Inventory
         /// IItem argument represents the last modified item, int represents the quantity of the item.
         /// </summary>
         public Action<IItem, int> OnInventoryModified { get; set; }
+
+        public SerializedDictionary<IItem, int> ItemsByQuantity => _itemsByQuantity;
+
+        #endregion
+
+        #region Unity Callbacks
+
+        private void Start()
+        {
+            LoadInventory();
+        }
+
+        private void OnDestroy()
+        {
+            SaveInventory();
+        }
 
         #endregion
 
@@ -54,6 +70,8 @@ namespace Game.Runtime.Systems.Inventory
             {
                 _itemsByQuantity.Add(item, quantity);
             }
+            
+            OnInventoryModified?.Invoke(item, quantity);
         }
 
         /// <summary>
@@ -74,6 +92,7 @@ namespace Game.Runtime.Systems.Inventory
                 _itemsByQuantity.Remove(item);
             }
 
+            OnInventoryModified?.Invoke(item, -quantity);
             return true;
         }
 
@@ -86,11 +105,11 @@ namespace Game.Runtime.Systems.Inventory
         /// </summary>
         private void SaveInventory()
         {
-            // TODO: The inventory should only provide the inventory save class, refactor this later
             List<int> itemHashes = _itemsByQuantity.Select(pair => pair.Key.GetHashCode()).ToList();
             List<int> itemQuantities = _itemsByQuantity.Select(pair => pair.Value).ToList();
 
-            GameSave save = new GameSave(itemHashes, itemQuantities);
+            // TODO: The inventory should only provide the inventory save class, refactor this later
+            InventorySave save = new InventorySave(itemHashes, itemQuantities);
             PlayerPrefs.SetString("InventorySave", JsonUtility.ToJson(save));
         }
 
@@ -101,11 +120,17 @@ namespace Game.Runtime.Systems.Inventory
         {
             if (!PlayerPrefs.HasKey("InventorySave")) return;
 
-            GameSave save = JsonUtility.FromJson<GameSave>(PlayerPrefs.GetString("InventorySave"));
+            InventorySave save = JsonUtility.FromJson<InventorySave>(PlayerPrefs.GetString("InventorySave"));
             _itemsByQuantity = new SerializedDictionary<IItem, int>();
 
             for (int index = 0; index < save.InventoryItemQuantities.Count; index++)
             {
+                if (itemRegistry.GetItemByHash(save.InventoryItemHashes[index]) == null)
+                {
+                    Debug.LogError("Could not restore an item! Item hash: " + save.InventoryItemHashes[index]);
+                    continue;
+                }
+                
                 _itemsByQuantity.Add(itemRegistry.GetItemByHash(save.InventoryItemHashes[index]),
                     save.InventoryItemQuantities[index]);
             }
