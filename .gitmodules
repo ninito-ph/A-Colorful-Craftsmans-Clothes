@@ -1,0 +1,6 @@
+[submodule "Assets/Plugins/TheUsualSuspects"]
+	path = Assets/Plugins/TheUsualSuspects
+	url = https://github.com/ninito-ph/The-Usual-Suspects
+[submodule "Assets/Plugins/ScriptableArchitecture"]
+	path = Assets/Plugins/ScriptableArchitecture
+	url = https://github.com/ninito-ph/Scriptable-Architecture
