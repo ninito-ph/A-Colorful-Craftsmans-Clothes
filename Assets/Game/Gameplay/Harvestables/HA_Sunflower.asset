@@ -16,4 +16,5 @@ MonoBehaviour:
   harvestableName: Sunflower
   harvestableSprite: {fileID: -5154733350214931134, guid: 05aca71ae87684949863318c6a51ae03, type: 3}
   respawnTime: 3
+  drop: {fileID: 11400000, guid: 2682e12566ba3a44f86b9a9826a2012c, type: 2}
   harvestEffect: {fileID: 0}
