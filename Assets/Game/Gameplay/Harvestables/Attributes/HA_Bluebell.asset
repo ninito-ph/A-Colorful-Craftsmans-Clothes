@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b40f92d4e22247108993746c1b803337, type: 3}
-  m_Name: HA_Pinkbell
+  m_Name: HA_Bluebell
   m_EditorClassIdentifier: 
-  description: A pink Pinkbell!
-  harvestableName: Pinkbell
+  description: A blue Bluebell!
+  harvestableName: Bluebell
   harvestableSprite: {fileID: 4173296794092142881, guid: 05aca71ae87684949863318c6a51ae03, type: 3}
   respawnTime: 3
   drop: {fileID: 11400000, guid: 9c47feaa23252a649847d4705ced2195, type: 2}
-  harvestEffect: {fileID: 0}
+  harvestEffect: {fileID: 999232185797658373, guid: 0ad86b251cfd8c846a49a7b7f0bb8858, type: 3}
