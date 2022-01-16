@@ -1,4 +1,5 @@
-﻿using Ninito.UsualSuspects.Interactable;
+﻿using Ninito.UnityExtended.WindowManager;
+using Ninito.UsualSuspects.Interactable;
 using UnityEngine;
 
 namespace Game.Runtime.Entities.Player
@@ -16,6 +17,14 @@ namespace Game.Runtime.Entities.Player
 
         [SerializeField]
         private Simple2DInteractor interactor;
+        
+        [Header("UI Input")]
+        [SerializeField]
+        private WindowManager windowManager;
+
+        [Header("Window Manager Keys")]
+        [SerializeField]
+        private string inventoryMenuKey;
 
         #endregion
 
@@ -25,6 +34,7 @@ namespace Game.Runtime.Entities.Player
         {
             HandleMovementInput();
             HandleInteractionInput();
+            HandleUIInput();
         }
 
 
@@ -52,6 +62,17 @@ namespace Game.Runtime.Entities.Player
             if (horizontal == 0 && vertical == 0) return;
 
             movement.Move(horizontal, vertical);
+        }
+
+        /// <summary>
+        /// Passes off UI input to the <see cref="WindowManager"/> class
+        /// </summary>
+        private void HandleUIInput()
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                windowManager.ToggleMenu(inventoryMenuKey);
+            }
         }
         
         #endregion
