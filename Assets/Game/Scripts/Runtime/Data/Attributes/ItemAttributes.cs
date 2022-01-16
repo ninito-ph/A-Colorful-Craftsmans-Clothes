@@ -11,11 +11,19 @@ namespace Game.Runtime.Data.Attributes
     {
         #region Private Fields
 
+        [Header("Visual")]
         [SerializeField]
         private string itemName;
 
         [SerializeField]
         private Sprite itemIcon;
+
+        [Header("Properties")]
+        [SerializeField]
+        private bool usable = false;
+
+        [SerializeField]
+        private int value = 1;
 
         #endregion
 
@@ -23,6 +31,8 @@ namespace Game.Runtime.Data.Attributes
 
         public string Name => itemName;
         public Sprite Icon => itemIcon;
+        public bool Usable => usable;
+        public int Value => value;
 
         #endregion
     }
