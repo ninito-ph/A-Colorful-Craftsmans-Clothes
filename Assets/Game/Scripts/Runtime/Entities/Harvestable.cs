@@ -81,7 +81,7 @@ namespace Game.Runtime.Entities
 
         #region IInteractable Implementation
 
-        public string InteractionToolTip => attributes.HarvestableName;
+        public string InteractionToolTip => "Press E to harvest " + attributes.HarvestableName;
 
         public void InteractWithAs(IInteractor interactor)
         {
