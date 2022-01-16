@@ -30,6 +30,10 @@
         public const string ITEM_ATTRIBUTES_FILENAME = "Item Attributes";
         public const string ITEM_ATTRIBUTES_MENUNAME = "Ninito/Game/Attributes/Item Attributes";
         public const int ITEM_ATTRIBUTES_ORDER = 0;
+        
+        public const string CLOTHING_ATTRIBUTES_FILENAME = "Clothing Attributes";
+        public const string CLOTHING_ATTRIBUTES_MENUNAME = "Ninito/Game/Attributes/Clothing Attributes";
+        public const int CLOTHING_ATTRIBUTES_ORDER = 0;
 
         #endregion
     }
