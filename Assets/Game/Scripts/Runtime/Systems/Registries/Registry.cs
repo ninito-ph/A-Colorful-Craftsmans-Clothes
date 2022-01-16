@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Game.Runtime.Systems
@@ -13,6 +14,24 @@ namespace Game.Runtime.Systems
         #region Public Fields
 
         public List<T> Items = new List<T>();
+
+        #endregion
+        
+        #region Protected Methods
+
+#if UNITY_EDITOR
+        [ContextMenu("Get All Items In Project")]
+        protected virtual void GetAllProjectItems()
+        {
+            Items.Clear();
+            
+            foreach (T item in (T[])Resources.FindObjectsOfTypeAll(typeof(T)))
+            {
+                if (!EditorUtility.IsPersistent(item)) continue;
+                Items.Add(item);
+            }
+        }
+#endif
 
         #endregion
     }

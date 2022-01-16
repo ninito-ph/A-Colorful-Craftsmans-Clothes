@@ -23,20 +23,10 @@ namespace Game.Runtime.Systems
 
         #region Private Methods
 
-#if UNITY_EDITOR
-        [ContextMenu("Get All Items In Project")]
-        private void GetAllProjectItems()
-        {
-            Items.Clear();
-            
-            foreach (Object foundObject in Resources.FindObjectsOfTypeAll(typeof(ItemAttributes)))
-            {
-                ItemAttributes itemAttributes = (ItemAttributes) foundObject;
-                if (!EditorUtility.IsPersistent(itemAttributes)) continue;
-                Items.Add(itemAttributes);
-            }
-        }
-#endif
+        // Normally I wouldn't need to do this, but ContextMenu not showing up in inherited classes
+        // is a regression bug present in this Unity version :(
+        [ContextMenu("Auto fill")]
+        private void FillSelf() => GetAllProjectItems();
 
         #endregion
     }
