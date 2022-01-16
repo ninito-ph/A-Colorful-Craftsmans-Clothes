@@ -12,22 +12,13 @@ namespace Game.Runtime.Entities.Player
 
         [SerializeField]
         private float speed = 5f;
-        
-        private Animator _animator;
-        private Rigidbody2D _rigidbody;
+
+        [SerializeField]
+        private Animator[] animators;
+
         private static readonly int _horizontalAnimProperty = Animator.StringToHash("Horizontal");
         private static readonly int _verticalAnimProperty = Animator.StringToHash("Vertical");
         private static readonly int _speedAnimProperty = Animator.StringToHash("Speed");
-
-        #endregion
-
-        #region Unity Callbacks
-
-        private void Awake()
-        {
-            TryGetComponent(out _animator);
-            TryGetComponent(out _rigidbody);
-        }
 
         #endregion
 
@@ -46,7 +37,7 @@ namespace Game.Runtime.Entities.Player
             {
                 movement.Normalize();
             }
-            
+
             transform.Translate(movement * speed * Time.fixedDeltaTime);
             UpdateAnimatorValues(movement);
         }
@@ -61,9 +52,13 @@ namespace Game.Runtime.Entities.Player
         /// <param name="movement">The movement vector to update values with</param>
         private void UpdateAnimatorValues(Vector2 movement)
         {
-            _animator.SetFloat(_horizontalAnimProperty, movement.x);
-            _animator.SetFloat(_verticalAnimProperty, movement.y);
-            _animator.SetFloat(_speedAnimProperty, movement.sqrMagnitude);
+            // ReSharper disable once ForCanBeConvertedToForeach
+            for (int index = 0; index < animators.Length; index++)
+            {
+                animators[index].SetFloat(_horizontalAnimProperty, movement.x);
+                animators[index].SetFloat(_verticalAnimProperty, movement.y);
+                animators[index].SetFloat(_speedAnimProperty, movement.sqrMagnitude);
+            }
         }
 
         #endregion
