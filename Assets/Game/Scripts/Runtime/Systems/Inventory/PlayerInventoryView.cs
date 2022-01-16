@@ -17,6 +17,9 @@ namespace Game.Runtime.Systems.Inventory
 
         [SerializeField]
         private GameObject itemEntryViewPrefab;
+        
+        [SerializeField]
+        private GameObject itemEntryViewContainer;
 
         #endregion
 
@@ -25,6 +28,7 @@ namespace Game.Runtime.Systems.Inventory
         private void Start()
         {
             inventory.OnInventoryModified += UpdateInventoryView;
+            PaintInventoryView();
         }
 
         private void OnDestroy()
@@ -63,7 +67,7 @@ namespace Game.Runtime.Systems.Inventory
         /// <param name="quantity">The quantity of the item to paint</param>
         private void PaintItemEntryView(ItemAttributes item, int quantity)
         {
-            GameObject itemEntryView = Instantiate(itemEntryViewPrefab, transform);
+            GameObject itemEntryView = Instantiate(itemEntryViewPrefab, itemEntryViewContainer.transform);
             itemEntryView.GetComponent<InventoryItemEntryView>().SetViewItem(item, quantity);
         }
 
@@ -72,7 +76,7 @@ namespace Game.Runtime.Systems.Inventory
         /// </summary>
         private void ClearInventoryView()
         {
-            foreach (Transform child in transform)
+            foreach (Transform child in itemEntryViewContainer.transform)
             {
                 Destroy(child.gameObject);
             }
