@@ -74,7 +74,7 @@ namespace Game.Runtime.Entities
         {
             if (_isHarvested) return;
             Harvest();
-            interactor.GameObject.GetComponent<PlayerInventory>().AddItem(attributes);
+            interactor.GameObject.GetComponent<PlayerInventory>().AddItem(attributes.Drop);
         }
 
         #endregion
