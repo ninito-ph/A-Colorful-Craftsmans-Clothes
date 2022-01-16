@@ -8,7 +8,7 @@ namespace Game.Runtime.Data.Attributes
     /// </summary>
     [CreateAssetMenu(fileName = CreateMenus.HARVESTABLE_ATTRIBUTES_FILENAME,
         menuName = CreateMenus.HARVESTABLE_ATTRIBUTES_MENUNAME, order = CreateMenus.HARVESTABLE_ATTRIBUTES_ORDER)]
-    public sealed class HarvestableAttributes : Attributes, IItem
+    public sealed class HarvestableAttributes : Attributes
     {
         #region Private Fields
 
@@ -22,6 +22,10 @@ namespace Game.Runtime.Data.Attributes
         [SerializeField]
         private float respawnTime;
 
+        [Header("Drops")]
+        [SerializeField]
+        private ItemAttributes drop;
+        
         [Header("Visual Effects")]
         [SerializeField]
         private GameObject harvestEffect;
@@ -33,14 +37,8 @@ namespace Game.Runtime.Data.Attributes
         public string HarvestableName => harvestableName;
         public Sprite HarvestableSprite => harvestableSprite;
         public float RespawnTime => respawnTime;
+        public ItemAttributes Drop => drop;
         public GameObject HarvestEffect => harvestEffect;
-
-        #endregion
-
-        #region IItem Implementation
-
-        public string Name => harvestableName;
-        public Sprite Icon => harvestableSprite;
 
         #endregion
     }
