@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/SA_MainMenu.unity
     guid: 7b408aee5123490469c4cea5fb30a5c6
   - enabled: 1
-    path: Assets/Game/Scenes/SA_Game.unity
+    path: Assets/Game/Scenes/Game/Outside/SA_Game.unity
     guid: fd28a78b16208f9479fa8ba314cbf748
   - enabled: 1
     path: Assets/Game/Scenes/SA_LoadingScreen.unity
