@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 256b156f2f3242d380bd562d22d4e123, type: 3}
-  m_Name: HR_HarvestableRegistryGlobal
+  m_Script: {fileID: 11500000, guid: a445611f0bef434b901c17e3b0f27d21, type: 3}
+  m_Name: IA_RosePiece
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 11400000, guid: b1bc3f90781d94744a03d29ca8dda063, type: 2}
+  itemName: Rose Petals
+  itemIcon: {fileID: -2195721166960931211, guid: 05aca71ae87684949863318c6a51ae03, type: 3}
+  usable: 0
+  value: 1
