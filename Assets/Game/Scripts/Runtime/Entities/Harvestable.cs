@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Game.Runtime.Data.Attributes;
 using Game.Runtime.Systems.Inventory;
 using Ninito.UsualSuspects.Interactable;
@@ -31,6 +32,18 @@ namespace Game.Runtime.Entities
         {
             TryGetComponent(out _spriteRenderer);
             TryGetComponent(out _collider);
+        }
+
+        private void OnValidate()
+        {
+            if (attributes == null) return;
+
+            if (_spriteRenderer == null)
+            {
+                TryGetComponent(out _spriteRenderer);
+            }
+            
+            _spriteRenderer.sprite = attributes.HarvestableSprite;
         }
 
         #endregion
