@@ -26,6 +26,10 @@
         public const string HARVESTABLE_ATTRIBUTES_FILENAME = "Harvestable Attributes";
         public const string HARVESTABLE_ATTRIBUTES_MENUNAME = "Ninito/Game/Attributes/Harvestable Attributes";
         public const int HARVESTABLE_ATTRIBUTES_ORDER = 0;
+        
+        public const string ITEM_ATTRIBUTES_FILENAME = "Item Attributes";
+        public const string ITEM_ATTRIBUTES_MENUNAME = "Ninito/Game/Attributes/Item Attributes";
+        public const int ITEM_ATTRIBUTES_ORDER = 0;
 
         #endregion
     }
