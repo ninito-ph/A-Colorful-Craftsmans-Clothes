@@ -17,4 +17,4 @@ MonoBehaviour:
   harvestableSprite: {fileID: 3438902477109943297, guid: 05aca71ae87684949863318c6a51ae03, type: 3}
   respawnTime: 3
   drop: {fileID: 11400000, guid: 9d4bfc6639cc2984486fe85619b28ee5, type: 2}
-  harvestEffect: {fileID: 0}
+  harvestEffect: {fileID: 999232185797658373, guid: 0ad86b251cfd8c846a49a7b7f0bb8858, type: 3}
