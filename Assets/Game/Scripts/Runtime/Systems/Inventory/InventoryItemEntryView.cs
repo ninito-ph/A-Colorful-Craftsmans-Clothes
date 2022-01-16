@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Game.Runtime.Data.Attributes;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,7 +31,7 @@ namespace Game.Runtime.Systems.Inventory
         /// </summary>
         /// <param name="item">The item to display on the view</param>
         /// <param name="quantity">The quantity of the item to display</param>
-        public void SetViewItem(IItem item, int quantity)
+        public void SetViewItem(ItemAttributes item, int quantity)
         {
             icon.sprite = item.Icon;
             nameText.text = item.Name;

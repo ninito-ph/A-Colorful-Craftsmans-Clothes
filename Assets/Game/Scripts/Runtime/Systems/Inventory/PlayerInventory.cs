@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Game.Runtime.Data.Attributes;
 using Game.Runtime.Systems.Save;
 using Ninito.UsualSuspects;
 using UnityEngine;
@@ -16,19 +17,18 @@ namespace Game.Runtime.Systems.Inventory
 
         [SerializeField]
         private ItemRegistry itemRegistry;
-        
-        private SerializedDictionary<IItem, int> _itemsByQuantity = new SerializedDictionary<IItem, int>();
 
         #endregion
 
         #region Properties
 
         /// <summary>
-        /// IItem argument represents the last modified item, int represents the quantity of the item.
+        /// ItemAttributes argument represents the last modified item, int represents the quantity of the item.
         /// </summary>
-        public Action<IItem, int> OnInventoryModified { get; set; }
+        public Action<ItemAttributes, int> OnInventoryModified { get; set; }
 
-        public SerializedDictionary<IItem, int> ItemsByQuantity => _itemsByQuantity;
+        public SerializedDictionary<ItemAttributes, int> ItemsByQuantity { get; private set; } =
+            new SerializedDictionary<ItemAttributes, int>();
 
         #endregion
 
@@ -54,7 +54,7 @@ namespace Game.Runtime.Systems.Inventory
         /// <param name="item">The item to add</param>
         /// <param name="quantity">The quantity to add</param>
         /// <exception cref="ArgumentOutOfRangeException">Exception thrown if trying to add a negative quantity</exception>
-        public void AddItem(IItem item, int quantity = 1)
+        public void AddItem(ItemAttributes item, int quantity = 1)
         {
             if (quantity < 0)
             {
@@ -62,15 +62,15 @@ namespace Game.Runtime.Systems.Inventory
                     "Quantity must be greater than or equal to zero.");
             }
 
-            if (_itemsByQuantity.ContainsKey(item))
+            if (ItemsByQuantity.ContainsKey(item))
             {
-                _itemsByQuantity[item] += quantity;
+                ItemsByQuantity[item] += quantity;
             }
             else
             {
-                _itemsByQuantity.Add(item, quantity);
+                ItemsByQuantity.Add(item, quantity);
             }
-            
+
             OnInventoryModified?.Invoke(item, quantity);
         }
 
@@ -80,16 +80,16 @@ namespace Game.Runtime.Systems.Inventory
         /// <param name="item">The item to remove</param>
         /// <param name="quantity">The quantity to try to remove</param>
         /// <returns>Whether the specified quantity of the given item was removed</returns>
-        public bool TryRemoveItem(IItem item, int quantity = 1)
+        public bool TryRemoveItem(ItemAttributes item, int quantity = 1)
         {
-            if (!_itemsByQuantity.ContainsKey(item)) return false;
-            if (_itemsByQuantity[item] < quantity) return false;
+            if (!ItemsByQuantity.ContainsKey(item)) return false;
+            if (ItemsByQuantity[item] < quantity) return false;
 
-            _itemsByQuantity[item] -= quantity;
+            ItemsByQuantity[item] -= quantity;
 
-            if (_itemsByQuantity[item] == 0)
+            if (ItemsByQuantity[item] == 0)
             {
-                _itemsByQuantity.Remove(item);
+                ItemsByQuantity.Remove(item);
             }
 
             OnInventoryModified?.Invoke(item, -quantity);
@@ -105,8 +105,8 @@ namespace Game.Runtime.Systems.Inventory
         /// </summary>
         private void SaveInventory()
         {
-            List<int> itemHashes = _itemsByQuantity.Select(pair => pair.Key.GetHashCode()).ToList();
-            List<int> itemQuantities = _itemsByQuantity.Select(pair => pair.Value).ToList();
+            List<int> itemHashes = ItemsByQuantity.Select(pair => pair.Key.GetHashCode()).ToList();
+            List<int> itemQuantities = ItemsByQuantity.Select(pair => pair.Value).ToList();
 
             // TODO: The inventory should only provide the inventory save class, refactor this later
             InventorySave save = new InventorySave(itemHashes, itemQuantities);
@@ -121,7 +121,7 @@ namespace Game.Runtime.Systems.Inventory
             if (!PlayerPrefs.HasKey("InventorySave")) return;
 
             InventorySave save = JsonUtility.FromJson<InventorySave>(PlayerPrefs.GetString("InventorySave"));
-            _itemsByQuantity = new SerializedDictionary<IItem, int>();
+            ItemsByQuantity = new SerializedDictionary<ItemAttributes, int>();
 
             for (int index = 0; index < save.InventoryItemQuantities.Count; index++)
             {
@@ -130,10 +130,13 @@ namespace Game.Runtime.Systems.Inventory
                     Debug.LogError("Could not restore an item! Item hash: " + save.InventoryItemHashes[index]);
                     continue;
                 }
-                
-                _itemsByQuantity.Add(itemRegistry.GetItemByHash(save.InventoryItemHashes[index]),
+
+                ItemsByQuantity.Add(itemRegistry.GetItemByHash(save.InventoryItemHashes[index]),
                     save.InventoryItemQuantities[index]);
             }
+
+            if (ItemsByQuantity.Count <= 0) return;
+            OnInventoryModified?.Invoke(null, 0);
         }
 
         #endregion
