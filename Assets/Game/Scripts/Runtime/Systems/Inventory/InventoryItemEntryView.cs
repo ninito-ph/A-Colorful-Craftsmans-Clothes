@@ -34,6 +34,7 @@ namespace Game.Runtime.Systems.Inventory
         public void SetViewItem(ItemAttributes item, int quantity)
         {
             icon.sprite = item.Graphic;
+            icon.color = item.Color;
             nameText.text = item.Name;
             countText.text = quantity.ToString();
         }
