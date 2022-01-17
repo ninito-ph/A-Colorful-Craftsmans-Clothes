@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: HR_HarvestableRegistryGlobal
   m_EditorClassIdentifier: 
   Items:
-  - {fileID: 11400000, guid: b1bc3f90781d94744a03d29ca8dda063, type: 2}
-  - {fileID: 11400000, guid: 6abfde0b20c3d1b44bbb0ced2a36f45d, type: 2}
-  - {fileID: 11400000, guid: 79eafcd5edd43114b93f67e7908022ce, type: 2}
+  - {fileID: 11400000, guid: 5115f608d3819514fa0d59c462ef09f5, type: 2}
   - {fileID: 11400000, guid: 1341885a56acb834bb9abfedd55f186d, type: 2}
   - {fileID: 11400000, guid: cdba810d76d807b41a8b63966942386c, type: 2}
-  - {fileID: 11400000, guid: 5115f608d3819514fa0d59c462ef09f5, type: 2}
+  - {fileID: 11400000, guid: 79eafcd5edd43114b93f67e7908022ce, type: 2}
