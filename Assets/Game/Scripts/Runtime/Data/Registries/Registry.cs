@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -20,15 +21,35 @@ namespace Game.Runtime.Data.Registries
         #region Public Methods
 
         /// <summary>
+        /// Gets an item from the registry by its hash
+        /// </summary>
+        /// <param name="itemHash">The hash of the item to search for</param>
+        /// <returns>An item with a matching hash</returns>
+        public T GetItemByHash(int itemHash)
+        {
+            return Items.FirstOrDefault(item => item.GetHashCode() == itemHash);
+        }
+
+        /// <summary>
         /// Adds an item to the registry, if it is not already in the registry.
         /// </summary>
         /// <param name="item">The item to add</param>
-        public void Add(T item)
+        public virtual void Add(T item)
         {
             if (!Items.Contains(item))
             {
                 Items.Add(item);
             }
+        }
+
+        /// <summary>
+        /// Returns all items of the specified type
+        /// </summary>
+        /// <typeparam name="U">The desired type</typeparam>
+        /// <returns>An array of items of the desired type</returns>
+        public U[] GetAllItemsOfType<U>()
+        {
+            return Items.Where(item => item is U).Cast<U>().ToArray();
         }
 
         #endregion
@@ -44,7 +65,7 @@ namespace Game.Runtime.Data.Registries
             foreach (T item in (T[])Resources.FindObjectsOfTypeAll(typeof(T)))
             {
                 if (!EditorUtility.IsPersistent(item)) continue;
-                Items.Add(item);
+                Add(item);
             }
         }
 #endif
