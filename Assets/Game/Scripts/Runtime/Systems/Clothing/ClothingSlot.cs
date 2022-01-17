@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Runtime.Data.Attributes;
 using UnityEngine;
 
 namespace Game.Runtime.Systems.Clothing
@@ -13,7 +14,7 @@ namespace Game.Runtime.Systems.Clothing
 
         [Header("Equipment")]
         [SerializeField]
-        public ClothingArticle Article;
+        public ClothingAttributes Article;
         
         [Header("Dependencies")]
         [SerializeField]
@@ -29,7 +30,7 @@ namespace Game.Runtime.Systems.Clothing
         /// Sets the clothing article to the given one
         /// </summary>
         /// <param name="article">The given clothing article</param>
-        public void SetArticle(ClothingArticle article)
+        public void SetArticle(ClothingAttributes article)
         {
             Article = article;
             UpdateRendererAndAnimator();
@@ -45,7 +46,7 @@ namespace Game.Runtime.Systems.Clothing
         private void UpdateRendererAndAnimator()
         {
             ClothesRenderer.color = Article.Color;
-            ClothesAnimator.runtimeAnimatorController = Article.Attributes.AnimatorOverrideController;
+            ClothesAnimator.runtimeAnimatorController = Article.OverrideController;
         }
 
         #endregion
