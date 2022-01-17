@@ -1,19 +1,21 @@
 ﻿using System.Collections.Generic;
 using Game.Runtime.Data.Attributes;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Runtime.Systems.Inventory
 {
     /// <summary>
     /// A class that manages the view of the player's inventory.
     /// </summary>
-    public sealed class PlayerInventoryView : MonoBehaviour
+    public sealed class InventoryView : MonoBehaviour
     {
         #region Private Fields
 
+        [FormerlySerializedAs("inventory")]
         [Header("Dependencies")]
         [SerializeField]
-        private PlayerInventory inventory;
+        private ItemInventory itemInventory;
 
         [SerializeField]
         private GameObject itemEntryViewPrefab;
@@ -27,13 +29,13 @@ namespace Game.Runtime.Systems.Inventory
 
         private void Start()
         {
-            inventory.OnInventoryModified += UpdateInventoryView;
+            itemInventory.OnInventoryModified += UpdateInventoryView;
             PaintInventoryView();
         }
 
         private void OnDestroy()
         {
-            inventory.OnInventoryModified -= UpdateInventoryView;
+            itemInventory.OnInventoryModified -= UpdateInventoryView;
         }
 
         #endregion
@@ -54,7 +56,7 @@ namespace Game.Runtime.Systems.Inventory
         /// </summary>
         private void PaintInventoryView()
         {
-            foreach (KeyValuePair<ItemAttributes, int> itemAndQuantity in inventory.ItemsByQuantity)
+            foreach (KeyValuePair<ItemAttributes, int> itemAndQuantity in itemInventory.ItemsByQuantity)
             {
                 PaintItemEntryView(itemAndQuantity.Key, itemAndQuantity.Value);
             }

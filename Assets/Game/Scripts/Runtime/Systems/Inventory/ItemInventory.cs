@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Game.Runtime.Data.Attributes;
+using Game.Runtime.Data.Registries;
 using Game.Runtime.Systems.Save;
 using Ninito.UsualSuspects;
 using UnityEngine;
@@ -11,12 +12,15 @@ namespace Game.Runtime.Systems.Inventory
     /// <summary>
     /// A class that manages the player's inventory.
     /// </summary>
-    public sealed class PlayerInventory : MonoBehaviour
+    public sealed class ItemInventory : MonoBehaviour
     {
         #region Private Fields
 
         [SerializeField]
         private ItemRegistry itemRegistry;
+
+        [SerializeField]
+        private bool saveAndLoad = false;
 
         #endregion
 
@@ -36,11 +40,13 @@ namespace Game.Runtime.Systems.Inventory
 
         private void Start()
         {
+            if (!saveAndLoad) return;
             LoadInventory();
         }
 
         private void OnDestroy()
         {
+            if (!saveAndLoad) return;
             SaveInventory();
         }
 
@@ -48,6 +54,18 @@ namespace Game.Runtime.Systems.Inventory
 
         #region Public Methods
 
+        /// <summary>
+        /// Adds everything from another inventory
+        /// </summary>
+        /// <param name="inventory">The inventory to add from</param>
+        public void AddEverythingFrom(ItemInventory inventory)
+        {
+            foreach (KeyValuePair<ItemAttributes, int> item in inventory.ItemsByQuantity)
+            {
+                AddItem(item.Key, item.Value);
+            }
+        }
+        
         /// <summary>
         /// Adds an item to the inventory.
         /// </summary>
@@ -94,6 +112,24 @@ namespace Game.Runtime.Systems.Inventory
 
             OnInventoryModified?.Invoke(item, -quantity);
             return true;
+        }
+
+        /// <summary>
+        /// Checks whether the player has the given amount of the given item
+        /// </summary>
+        /// <param name="item">The item to check the quantity of</param>
+        /// <param name="quantity">The minimum quantity</param>
+        /// <returns></returns>
+        public bool HasItem(ItemAttributes item, int quantity = 1)
+        {
+            if (ItemsByQuantity.ContainsKey(item))
+            {
+                return ItemsByQuantity[item] >= quantity;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         #endregion

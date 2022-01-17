@@ -33,7 +33,7 @@ namespace Game.Runtime.Systems.Inventory
         /// <param name="quantity">The quantity of the item to display</param>
         public void SetViewItem(ItemAttributes item, int quantity)
         {
-            icon.sprite = item.Icon;
+            icon.sprite = item.Graphic;
             nameText.text = item.Name;
             countText.text = quantity.ToString();
         }
