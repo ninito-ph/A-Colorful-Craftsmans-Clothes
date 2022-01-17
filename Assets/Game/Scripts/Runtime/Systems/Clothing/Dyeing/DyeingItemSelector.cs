@@ -21,12 +21,16 @@ namespace Game.Runtime.Systems.Clothing.Dyeing
         [SerializeField]
         private TMP_Text itemPreviewName;
 
+        [SerializeField]
+        private Button[] itemSelectionButtons;
+
         [Header("Registry")]
         [SerializeField]
         private ItemRegistry itemRegistry;
         
         private ClothingAttributes[] _clothingAttributes;
         private int _currentItemIndex = 0;
+        private DyeingOperation _dyeingOperation;
         
         #endregion
 
@@ -49,6 +53,22 @@ namespace Game.Runtime.Systems.Clothing.Dyeing
 
         #region Public Methods
 
+        /// <summary>
+        /// Receives an ongoing dyeing operation
+        /// </summary>
+        /// <param name="operation">The operation to handle</param>
+        public void HandleOperation(DyeingOperation operation)
+        {
+            _dyeingOperation = operation;
+            
+            _dyeingOperation.OnCrafteeModified += UpdatePreview;
+            _dyeingOperation.OnOperationConcluded += ReleaseOperation;
+            _dyeingOperation.OnOperationCanceled += ReleaseOperation;
+            
+            SetSelectionButtonsInteractable(false);
+            UpdatePreview(operation.Craftee);
+        }
+        
         /// <summary>
         /// Selects the next clothing item. Loops if there is no next item.
         /// </summary>
@@ -110,6 +130,42 @@ namespace Game.Runtime.Systems.Clothing.Dyeing
             itemPreviewRenderer.color = item.Color;
         }
 
+        /// <summary>
+        /// Sets all buttons to the specified state
+        /// </summary>
+        /// <param name="interactable">The state to set to; false is non-clickable, true is clickable</param>
+        private void SetSelectionButtonsInteractable(bool interactable)
+        {
+            foreach (Button button in itemSelectionButtons)
+            {
+                button.interactable = interactable;
+            }
+        }
+
+        /// <summary>
+        /// Unsubscribes from the ongoing dyeing operation and restores normal functionality
+        /// </summary>
+        /// <param name="item">Argument ignored</param>
+        private void ReleaseOperation(ClothingAttributes item)
+        {
+            ReleaseOperation();
+        }
+
+        /// <summary>
+        /// Unsubscribes from the ongoing dyeing operation and restores normal functionality
+        /// </summary>
+        private void ReleaseOperation()
+        {
+            SetSelectionButtonsInteractable(true);
+            UpdatePreview();
+            
+            _dyeingOperation.OnCrafteeModified -= UpdatePreview;
+            _dyeingOperation.OnOperationConcluded -= ReleaseOperation;
+            _dyeingOperation.OnOperationCanceled -= ReleaseOperation;
+            
+            _dyeingOperation = null;
+        }
+        
         #endregion
     }
 }
