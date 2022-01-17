@@ -25,6 +25,12 @@ namespace Game.Runtime.Data.Attributes
 
         #endregion
 
+        #region Public Fields
+
+        public Color Color = Color.white;
+
+        #endregion
+
         #region Properties
 
         public Sprite Graphic => graphic;
