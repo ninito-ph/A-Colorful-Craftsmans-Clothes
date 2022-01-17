@@ -55,6 +55,8 @@ namespace Game.Runtime.Entities.Player
             // ReSharper disable once ForCanBeConvertedToForeach
             for (int index = 0; index < animators.Length; index++)
             {
+                if (animators[index].runtimeAnimatorController == null) continue;
+                
                 animators[index].SetFloat(_horizontalAnimProperty, movement.x);
                 animators[index].SetFloat(_verticalAnimProperty, movement.y);
                 animators[index].SetFloat(_speedAnimProperty, movement.sqrMagnitude);
