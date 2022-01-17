@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a2f5d5d47940b6a50ad723aa1da1c9, type: 3}
   m_Name: CA_TShirt
   m_EditorClassIdentifier: 
+  name: T-Shirt
+  description: A plain T-Shirt!
+  graphic: {fileID: -1151497444810706352, guid: 294296a7ed9121541808ce41f3e6c062, type: 3}
+  usable: 0
+  value: 1
   AnimatorOverrideController: {fileID: 22100000, guid: d7acdd00c8010ec44ad905764252bdea, type: 2}
   DyeCostMultiplier: 1

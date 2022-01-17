@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a2f5d5d47940b6a50ad723aa1da1c9, type: 3}
   m_Name: CA_Suit
   m_EditorClassIdentifier: 
+  name: Suit
+  description: A fancy suit!
+  graphic: {fileID: 7147683334152384443, guid: 7939379586e1373449e32f77ed67fc66, type: 3}
+  usable: 1
+  value: 150
   AnimatorOverrideController: {fileID: 22100000, guid: 27b0aa229cbd1ca44a1bf173d7707775, type: 2}
-  DyeCostMultiplier: 1
+  DyeCostMultiplier: 3
