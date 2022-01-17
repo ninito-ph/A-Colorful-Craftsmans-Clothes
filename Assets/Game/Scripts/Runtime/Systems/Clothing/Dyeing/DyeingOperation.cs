@@ -16,7 +16,7 @@ namespace Game.Runtime.Systems.Clothing.Dyeing
         #region Public Fields
 
         [SerializeField]
-        public ItemInventory ItemInventory;
+        public ItemInventory ItemInventory = new ItemInventory();
 
         [SerializeField]
         public ClothingAttributes Craftee;
@@ -30,9 +30,8 @@ namespace Game.Runtime.Systems.Clothing.Dyeing
 
         #region Constructors
 
-        public DyeingOperation(ItemInventory itemInventory, ClothingAttributes craftee)
+        public DyeingOperation(ClothingAttributes craftee)
         {
-            ItemInventory = itemInventory;
             Craftee = craftee.Clone();
         }
 
@@ -45,10 +44,10 @@ namespace Game.Runtime.Systems.Clothing.Dyeing
         /// </summary>
         /// <param name="item">The item to dye with</param>
         /// <param name="color">The color to add</param>
-        public void DyeWith(ItemAttributes item, Color color)
+        public void DyeWith(ItemAttributes item, Vector4 color)
         {
             ItemInventory.AddItem(item);
-            Craftee.Color += color / Craftee.DyeCostMultiplier;
+            Craftee.Color = RGBandCMYKUtility.AddCMYKtoRBG(Craftee.Color, color);
             OnCrafteeModified?.Invoke(Craftee);
         }
 
