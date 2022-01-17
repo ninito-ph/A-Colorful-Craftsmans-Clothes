@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: T-Shirt
   description: A plain T-Shirt!
-  graphic: {fileID: -1151497444810706352, guid: 294296a7ed9121541808ce41f3e6c062, type: 3}
+  graphic: {fileID: 21300000, guid: 6aa6e1abbfa00ba458ea13a369b4bb78, type: 3}
   usable: 0
   value: 1
-  AnimatorOverrideController: {fileID: 22100000, guid: d7acdd00c8010ec44ad905764252bdea, type: 2}
-  DyeCostMultiplier: 1
+  Color: {r: 1, g: 1, b: 1, a: 1}
+  animatorOverrideController: {fileID: 22100000, guid: d7acdd00c8010ec44ad905764252bdea, type: 2}
+  dyeCostMultiplier: 1
