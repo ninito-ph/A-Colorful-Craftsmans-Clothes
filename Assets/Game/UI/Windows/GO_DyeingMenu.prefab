@@ -166,8 +166,10 @@ GameObject:
   - component: {fileID: 816426261820204651}
   - component: {fileID: 7540492139932204013}
   - component: {fileID: 5118833420035370475}
+  - component: {fileID: 2525685269905217405}
+  - component: {fileID: 2271452033800517701}
   m_Layer: 5
-  m_Name: Item Frame
+  m_Name: Dye Button Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,6 +233,78 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2525685269905217405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170136156839405105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 5118833420035370475}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7320819853178210121}
+        m_TargetAssemblyTypeName: Game.Runtime.Systems.Clothing.Dyeing.DyeingManager,
+          Game
+        m_MethodName: AddYellow
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 79eafcd5edd43114b93f67e7908022ce, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Game.Runtime.Data.Attributes.ItemAttributes,
+            Game
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2271452033800517701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170136156839405105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b48fde32a04b93aadc697516337dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dye: {fileID: 11400000, guid: 79eafcd5edd43114b93f67e7908022ce, type: 2}
+  button: {fileID: 2525685269905217405}
 --- !u!1 &657457253616778152
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,8 +735,9 @@ GameObject:
   - component: {fileID: 5686502645585804323}
   - component: {fileID: 5917044123552652132}
   - component: {fileID: 5398610535455936204}
+  - component: {fileID: 7879046530465798779}
   m_Layer: 5
-  m_Name: Item Frame
+  m_Name: Dye Button Cyan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -769,7 +844,35 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5917044123552652132}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7320819853178210121}
+        m_TargetAssemblyTypeName: Game.Runtime.Systems.Clothing.Dyeing.DyeingManager,
+          Game
+        m_MethodName: AddCyan
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 5115f608d3819514fa0d59c462ef09f5, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Game.Runtime.Data.Attributes.ItemAttributes,
+            Game
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7879046530465798779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211907788975604949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b48fde32a04b93aadc697516337dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dye: {fileID: 11400000, guid: 5115f608d3819514fa0d59c462ef09f5, type: 2}
+  button: {fileID: 5398610535455936204}
 --- !u!1 &1275268076640560975
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,8 +1066,10 @@ GameObject:
   - component: {fileID: 320342624313215180}
   - component: {fileID: 2639551417736142508}
   - component: {fileID: 1748275831604427063}
+  - component: {fileID: 5951259966446031051}
+  - component: {fileID: 6375137741713908553}
   m_Layer: 5
-  m_Name: Item Frame
+  m_Name: Dye Button Magenta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1028,6 +1133,78 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5951259966446031051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3836830733840559028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1748275831604427063}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7320819853178210121}
+        m_TargetAssemblyTypeName: Game.Runtime.Systems.Clothing.Dyeing.DyeingManager,
+          Game
+        m_MethodName: AddMagenta
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 1341885a56acb834bb9abfedd55f186d, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Game.Runtime.Data.Attributes.ItemAttributes,
+            Game
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6375137741713908553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3836830733840559028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b48fde32a04b93aadc697516337dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dye: {fileID: 11400000, guid: 1341885a56acb834bb9abfedd55f186d, type: 2}
+  button: {fileID: 5951259966446031051}
 --- !u!1 &4248817148597192035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,10 +1238,10 @@ RectTransform:
   m_Father: {fileID: 4212444870754514537}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 77}
-  m_SizeDelta: {x: 256.002, y: 256.002}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.0000076293945, y: 0}
+  m_SizeDelta: {x: -36.6067, y: -36.6067}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &927596156848874863
 CanvasRenderer:
@@ -1094,7 +1271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7147683334152384443, guid: 7939379586e1373449e32f77ed67fc66, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 063a003cc20d4d346930163d80b2cfe0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1131,7 +1308,7 @@ GameObject:
   - component: {fileID: 3074284135433910709}
   - component: {fileID: 26144391096062823}
   m_Layer: 5
-  m_Name: Item Display
+  m_Name: Item Selector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1198,6 +1375,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPreviewRenderer: {fileID: 1893009406760037195}
   itemPreviewName: {fileID: 7718071164533035353}
+  itemSelectionButtons:
+  - {fileID: 5891367128492310793}
+  - {fileID: 2937882941871818757}
   itemRegistry: {fileID: 11400000, guid: bedeca01c68e42b4eb77de723c7c97a0, type: 2}
 --- !u!1 &4918048795793178013
 GameObject:
@@ -1208,6 +1388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8757838734475068721}
+  - component: {fileID: 7320819853178210121}
   m_Layer: 5
   m_Name: GO_DyeingMenu
   m_TagString: Untagged
@@ -1235,6 +1416,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7320819853178210121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918048795793178013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f69a7f46994f369981a99c59ef4330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSelector: {fileID: 26144391096062823}
+  dyeButtons:
+  - {fileID: 7879046530465798779}
+  - {fileID: 6375137741713908553}
+  - {fileID: 2271452033800517701}
+  - {fileID: 4938213534871285784}
+  craftButton: {fileID: 86250029360730750}
+  windowManager: {fileID: 0}
+  onCloseMenuKey: 
+  defaultDyeAmount: 0.1
 --- !u!1 &5403043891620089426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,8 +1541,9 @@ GameObject:
   - component: {fileID: 468252871810395146}
   - component: {fileID: 4283492272621477600}
   - component: {fileID: 2066411275053037328}
+  - component: {fileID: 4938213534871285784}
   m_Layer: 5
-  m_Name: Item Frame
+  m_Name: Dye Button Key/Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1446,7 +1650,35 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4283492272621477600}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7320819853178210121}
+        m_TargetAssemblyTypeName: Game.Runtime.Systems.Clothing.Dyeing.DyeingManager,
+          Game
+        m_MethodName: AddKey
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: cdba810d76d807b41a8b63966942386c, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Game.Runtime.Data.Attributes.ItemAttributes,
+            Game
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4938213534871285784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076466958068241881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b48fde32a04b93aadc697516337dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dye: {fileID: 11400000, guid: cdba810d76d807b41a8b63966942386c, type: 2}
+  button: {fileID: 2066411275053037328}
 --- !u!1 &6660442969424884291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1884,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f121d8e7a9221294484b0b7592aa08df, type: 3}
+--- !u!114 &5891367128492310793 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4854400766886042321, guid: f121d8e7a9221294484b0b7592aa08df, type: 3}
+  m_PrefabInstance: {fileID: 1340978638858935256}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6926673896062457652 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8267590501886381292, guid: f121d8e7a9221294484b0b7592aa08df, type: 3}
@@ -1814,6 +2057,46 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7320819853178210121}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ConcludeDyeingOperation
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Game.Runtime.Systems.Clothing.Dyeing.DyeingManager, Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5683048160356616299, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
       propertyPath: m_Padding.m_Bottom
       value: 16
@@ -1928,7 +2211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8704280620103855890, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
       propertyPath: m_Name
-      value: GO_Button (1)
+      value: CraftButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
@@ -1937,6 +2220,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8267590501886381292, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
   m_PrefabInstance: {fileID: 4786235923547916463}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &86250029360730750 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+  m_PrefabInstance: {fileID: 4786235923547916463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7753860724578013908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2071,6 +2365,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8267590501886381292, guid: f121d8e7a9221294484b0b7592aa08df, type: 3}
   m_PrefabInstance: {fileID: 7753860724578013908}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2937882941871818757 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4854400766886042321, guid: f121d8e7a9221294484b0b7592aa08df, type: 3}
+  m_PrefabInstance: {fileID: 7753860724578013908}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9077086369611301343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2113,6 +2418,58 @@ PrefabInstance:
     - target: {fileID: 4211355793149717154, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7320819853178210121}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 7320819853178210121}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CancelDyeingOperation
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: CloseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Game.Runtime.Systems.Clothing.Dyeing.DyeingManager, Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: Game.Runtime.Systems.Clothing.Dyeing.DyeingManager, Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4854400766886042321, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5683048160356616299, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
       propertyPath: m_Padding.m_Bottom
@@ -2228,7 +2585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8704280620103855890, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
       propertyPath: m_Name
-      value: GO_Button
+      value: CancelButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37d35988fc59d1a43bb206c428aa1d51, type: 3}
