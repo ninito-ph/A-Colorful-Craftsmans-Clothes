@@ -43,7 +43,7 @@ namespace Game.Runtime.Entities
                 TryGetComponent(out _spriteRenderer);
             }
             
-            _spriteRenderer.sprite = attributes.HarvestableSprite;
+            _spriteRenderer.sprite = attributes.Graphic;
         }
 
         #endregion
@@ -63,7 +63,7 @@ namespace Game.Runtime.Entities
 
         private void UnHarvest()
         {
-            _spriteRenderer.sprite = attributes.HarvestableSprite;
+            _spriteRenderer.sprite = attributes.Graphic;
             _collider.enabled = true;
             _isHarvested = false;
         }
@@ -81,13 +81,13 @@ namespace Game.Runtime.Entities
 
         #region IInteractable Implementation
 
-        public string InteractionToolTip => "Press E to harvest " + attributes.HarvestableName;
+        public string InteractionToolTip => "Press E to harvest " + attributes.Name;
 
         public void InteractWithAs(IInteractor interactor)
         {
             if (_isHarvested) return;
             Harvest();
-            interactor.GameObject.GetComponent<PlayerInventory>().AddItem(attributes.Drop);
+            interactor.GameObject.GetComponent<ItemInventory>().AddItem(attributes);
         }
 
         #endregion
