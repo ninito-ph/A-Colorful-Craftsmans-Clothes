@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Suit
   description: A fancy suit!
-  graphic: {fileID: 7147683334152384443, guid: 7939379586e1373449e32f77ed67fc66, type: 3}
+  graphic: {fileID: 21300000, guid: 063a003cc20d4d346930163d80b2cfe0, type: 3}
   usable: 1
   value: 150
-  AnimatorOverrideController: {fileID: 22100000, guid: 27b0aa229cbd1ca44a1bf173d7707775, type: 2}
-  DyeCostMultiplier: 3
+  Color: {r: 1, g: 1, b: 1, a: 1}
+  animatorOverrideController: {fileID: 22100000, guid: 27b0aa229cbd1ca44a1bf173d7707775, type: 2}
+  dyeCostMultiplier: 3
