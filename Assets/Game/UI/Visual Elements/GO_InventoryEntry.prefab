@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 4203731039293985190}
   - component: {fileID: 734342593521526030}
   - component: {fileID: 4119424368429645761}
+  - component: {fileID: 3460504500264206184}
   m_Layer: 5
   m_Name: Item Image
   m_TagString: Untagged
@@ -379,7 +380,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.0000038146973, y: -1.5999985}
-  m_SizeDelta: {x: -37.8823, y: -37.8823}
+  m_SizeDelta: {x: -43.2806, y: -43.2806}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &734342593521526030
 CanvasRenderer:
@@ -419,6 +420,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3460504500264206184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4481813668569385712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.29803923}
+  m_EffectDistance: {x: 2.9, y: -4.4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &8323615649926505864
 GameObject:
   m_ObjectHideFlags: 0
