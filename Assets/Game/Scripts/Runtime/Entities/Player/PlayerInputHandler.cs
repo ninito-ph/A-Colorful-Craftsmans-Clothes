@@ -1,4 +1,5 @@
-﻿using Ninito.UnityExtended.WindowManager;
+﻿using Game.Runtime.Systems;
+using Ninito.UnityExtended.WindowManager;
 using Ninito.UsualSuspects.Interactable;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace Game.Runtime.Entities.Player
 
         [SerializeField]
         private Simple2DInteractor interactor;
-        
+
         [Header("UI Input")]
         [SerializeField]
         private WindowManager windowManager;
@@ -26,17 +27,20 @@ namespace Game.Runtime.Entities.Player
         [SerializeField]
         private string inventoryMenuKey;
 
+        [SerializeField]
+        private string pauseMenuKey;
+
         #endregion
 
         #region Unity Callbacks
 
         private void Update()
         {
+            if (TimeManager.IsPaused) return;
             HandleMovementInput();
             HandleInteractionInput();
             HandleUIInput();
         }
-
 
         #endregion
 
@@ -69,12 +73,32 @@ namespace Game.Runtime.Entities.Player
         /// </summary>
         private void HandleUIInput()
         {
+            HandleInventoryInput();
+            HandlePauseInput();
+        }
+
+        /// <summary>
+        /// Handle the input for the inventory menu
+        /// </summary>
+        private void HandleInventoryInput()
+        {
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 windowManager.ToggleMenu(inventoryMenuKey);
             }
         }
-        
+
+        /// <summary>
+        /// Handle the input for the pause menu
+        /// </summary>
+        private void HandlePauseInput()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                windowManager.SwitchToMenu(pauseMenuKey);
+            }
+        }
+
         #endregion
     }
 }
