@@ -13,8 +13,11 @@ namespace Game.Runtime.Data.Attributes
         private AnimatorOverrideController animatorOverrideController;
 
         [SerializeField]
-        [Min(1)]
+        [Min(0.1f)]
         private float dyeCostMultiplier = 1;
+        
+        [SerializeField]
+        private ClothingType type = ClothingType.Body;
 
         #endregion
 
@@ -23,8 +26,15 @@ namespace Game.Runtime.Data.Attributes
         public AnimatorOverrideController OverrideController => animatorOverrideController;
 
         public float DyeCostMultiplier => dyeCostMultiplier;
+        
+        public ClothingType Type => type;
 
         #endregion
+    }
 
+    public enum ClothingType
+    {
+        Body,
+        Accessory
     }
 }
