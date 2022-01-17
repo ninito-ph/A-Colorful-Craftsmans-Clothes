@@ -1,9 +1,8 @@
 ﻿using System.Linq;
 using Game.Runtime.Data.Attributes;
-using UnityEditor;
 using UnityEngine;
 
-namespace Game.Runtime.Systems
+namespace Game.Runtime.Data.Registries
 {
     /// <summary>
     /// A registry of items.
@@ -21,6 +20,20 @@ namespace Game.Runtime.Systems
 
         #endregion
 
+        #region Public Methods
+
+        /// <summary>
+        /// Returns all items of the specified type
+        /// </summary>
+        /// <typeparam name="T">The desired type</typeparam>
+        /// <returns>An array of items of the desired type</returns>
+        public T[] GetAllItemsOfType<T>()
+        {
+            return Items.Where(item => item is T).Cast<T>().ToArray();
+        }
+
+        #endregion
+        
         #region Private Methods
 
         // Normally I wouldn't need to do this, but ContextMenu not showing up in inherited classes

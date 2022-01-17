@@ -1,7 +1,7 @@
 ﻿using Game.Runtime.Data.Attributes;
 using UnityEngine;
 
-namespace Game.Runtime.Systems
+namespace Game.Runtime.Data.Registries
 {
     /// <summary>
     /// A registry of harvestable objects.
