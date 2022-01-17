@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Game.Runtime.Data.Attributes;
@@ -20,10 +20,6 @@ namespace Game.Runtime.Systems.Inventory
         [SerializeField]
         private ItemRegistry itemRegistry;
 
-        [SerializeField]
-        private SerializedDictionary<ItemAttributes, int> _itemsByQuantity =
-            new SerializedDictionary<ItemAttributes, int>();
-
         #endregion
 
         #region Properties
@@ -33,7 +29,10 @@ namespace Game.Runtime.Systems.Inventory
         /// </summary>
         public Action<ItemAttributes, int> OnInventoryModified { get; set; }
 
-        public SerializedDictionary<ItemAttributes, int> ItemsByQuantity => _itemsByQuantity;
+        public string SaveKey { get; set; }
+
+        public Dictionary<ItemAttributes, int> ItemsByQuantity { get; private set; } =
+            new Dictionary<ItemAttributes, int>();
 
         #endregion
 
@@ -122,12 +121,11 @@ namespace Game.Runtime.Systems.Inventory
         /// </summary>
         public void SaveInventory()
         {
-            List<int> itemHashes = ItemsByQuantity.Select(pair => pair.Key.GetHashCode()).ToList();
+            List<string> storedItems = ItemsByQuantity.Select(pair => pair.Key.Store()).ToList();
             List<int> itemQuantities = ItemsByQuantity.Select(pair => pair.Value).ToList();
 
-            // TODO: The inventory should only provide the inventory save class, refactor this later
-            InventorySave save = new InventorySave(itemHashes, itemQuantities);
-            PlayerPrefs.SetString("InventorySave", JsonUtility.ToJson(save));
+            InventorySave save = new InventorySave(storedItems, itemQuantities);
+            DataSaver.SaveData(save, SaveKey);
         }
 
         /// <summary>
@@ -135,21 +133,14 @@ namespace Game.Runtime.Systems.Inventory
         /// </summary>
         public void LoadInventory()
         {
-            if (!PlayerPrefs.HasKey("InventorySave")) return;
+            if (!DataLoader.TryLoad(SaveKey, out InventorySave save)) return;
 
-            InventorySave save = JsonUtility.FromJson<InventorySave>(PlayerPrefs.GetString("InventorySave"));
-            _itemsByQuantity = new SerializedDictionary<ItemAttributes, int>();
+            ItemsByQuantity = new Dictionary<ItemAttributes, int>();
 
             for (int index = 0; index < save.InventoryItemQuantities.Count; index++)
             {
-                if (itemRegistry.GetItemByHash(save.InventoryItemHashes[index]) == null)
-                {
-                    Debug.LogError("Could not restore an item! Item hash: " + save.InventoryItemHashes[index]);
-                    continue;
-                }
-
-                ItemsByQuantity.Add(itemRegistry.GetItemByHash(save.InventoryItemHashes[index]),
-                    save.InventoryItemQuantities[index]);
+                ItemAttributes item = ItemAttributes.Restore(save.StoredInventoryItems[index], itemRegistry);
+                ItemsByQuantity.Add(item, save.InventoryItemQuantities[index]);
             }
 
             if (ItemsByQuantity.Count <= 0) return;
