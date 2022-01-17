@@ -10,9 +10,10 @@ using UnityEngine;
 namespace Game.Runtime.Systems.Inventory
 {
     /// <summary>
-    /// A class that manages the player's inventory.
+    /// A class that manages an inventory of items.
     /// </summary>
-    public sealed class ItemInventory : MonoBehaviour
+    [Serializable]
+    public sealed class ItemInventory
     {
         #region Private Fields
 
@@ -20,7 +21,8 @@ namespace Game.Runtime.Systems.Inventory
         private ItemRegistry itemRegistry;
 
         [SerializeField]
-        private bool saveAndLoad = false;
+        private SerializedDictionary<ItemAttributes, int> _itemsByQuantity =
+            new SerializedDictionary<ItemAttributes, int>();
 
         #endregion
 
@@ -31,24 +33,7 @@ namespace Game.Runtime.Systems.Inventory
         /// </summary>
         public Action<ItemAttributes, int> OnInventoryModified { get; set; }
 
-        public SerializedDictionary<ItemAttributes, int> ItemsByQuantity { get; private set; } =
-            new SerializedDictionary<ItemAttributes, int>();
-
-        #endregion
-
-        #region Unity Callbacks
-
-        private void Start()
-        {
-            if (!saveAndLoad) return;
-            LoadInventory();
-        }
-
-        private void OnDestroy()
-        {
-            if (!saveAndLoad) return;
-            SaveInventory();
-        }
+        public SerializedDictionary<ItemAttributes, int> ItemsByQuantity => _itemsByQuantity;
 
         #endregion
 
@@ -65,7 +50,7 @@ namespace Game.Runtime.Systems.Inventory
                 AddItem(item.Key, item.Value);
             }
         }
-        
+
         /// <summary>
         /// Adds an item to the inventory.
         /// </summary>
@@ -119,7 +104,7 @@ namespace Game.Runtime.Systems.Inventory
         /// </summary>
         /// <param name="item">The item to check the quantity of</param>
         /// <param name="quantity">The minimum quantity</param>
-        /// <returns></returns>
+        /// <returns>Whether the player has the specified quantity (default 1) of the given item</returns>
         public bool HasItem(ItemAttributes item, int quantity = 1)
         {
             if (ItemsByQuantity.ContainsKey(item))
@@ -132,14 +117,10 @@ namespace Game.Runtime.Systems.Inventory
             }
         }
 
-        #endregion
-
-        #region Private Methods
-
         /// <summary>
         /// Saves the inventory
         /// </summary>
-        private void SaveInventory()
+        public void SaveInventory()
         {
             List<int> itemHashes = ItemsByQuantity.Select(pair => pair.Key.GetHashCode()).ToList();
             List<int> itemQuantities = ItemsByQuantity.Select(pair => pair.Value).ToList();
@@ -152,12 +133,12 @@ namespace Game.Runtime.Systems.Inventory
         /// <summary>
         /// Loads the inventory
         /// </summary>
-        private void LoadInventory()
+        public void LoadInventory()
         {
             if (!PlayerPrefs.HasKey("InventorySave")) return;
 
             InventorySave save = JsonUtility.FromJson<InventorySave>(PlayerPrefs.GetString("InventorySave"));
-            ItemsByQuantity = new SerializedDictionary<ItemAttributes, int>();
+            _itemsByQuantity = new SerializedDictionary<ItemAttributes, int>();
 
             for (int index = 0; index < save.InventoryItemQuantities.Count; index++)
             {
