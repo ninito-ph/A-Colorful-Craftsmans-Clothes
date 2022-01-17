@@ -1,5 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using Game.Runtime.Data.Registries;
+using Game.Runtime.Systems.Save;
+using Ninito.UsualSuspects.Attributes;
+using Ninito.UsualSuspects.CommonExtensions;
+using UnityEngine;
 using UnityEngine.Serialization;
+using Object = UnityEngine.Object;
 
 namespace Game.Runtime.Data.Attributes
 {
@@ -29,6 +35,10 @@ namespace Game.Runtime.Data.Attributes
 
         public Color Color = Color.white;
 
+        [Header("Internal Item Properties")]
+        [ReadOnlyField]
+        public int ID = -1;
+
         #endregion
 
         #region Properties
@@ -36,6 +46,55 @@ namespace Game.Runtime.Data.Attributes
         public Sprite Graphic => graphic;
         public bool Usable => usable;
         public int Value => value;
+
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Stores the item in a serializable class, <see cref="StoredItemAttributes"/>
+        /// </summary>
+        /// <returns>A JSON string of the ItemAttributes</returns>
+        public string Store()
+        {
+            return JsonUtility.ToJson(new StoredItemAttributes(this));
+        }
+
+        /// <summary>
+        /// Restores the item from a serialized string.
+        /// </summary>
+        /// <param name="data">The data to restore from</param>
+        /// <param name="registry">The registry to use as a basis for restoring</param>
+        /// <returns>The restored item</returns>
+        public static ItemAttributes Restore(string data, ItemRegistry registry)
+        {
+            StoredItemAttributes storedItemAttributes = JsonUtility.FromJson<StoredItemAttributes>(data);
+            ItemAttributes itemAttributes = registry.GetItemByID(storedItemAttributes.ID);
+
+            if (itemAttributes == null)
+            {
+                Debug.LogError(
+                    $"Item with ID {storedItemAttributes.ID} not found in registry {registry.GetType()}. " +
+                    $"Maybe you forgot to add it to the registry?");
+                return null;
+            }
+
+            ItemAttributes itemAttributesInstance = itemAttributes.Clone();
+            itemAttributesInstance.Color = storedItemAttributes.Color;
+
+            return itemAttributesInstance;
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode() ^ Value.GetHashCode() ^ Description.GetHashCode() ^ Color.GetHashCode();
+        }
+
+        public override bool Equals(object other)
+        {
+            if (other == null) return false;
+            return GetHashCode() == other.GetHashCode();
+        }
 
         #endregion
     }
