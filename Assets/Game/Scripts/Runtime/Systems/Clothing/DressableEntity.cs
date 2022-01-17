@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Game.Runtime.Systems.Clothing
 {
@@ -16,6 +15,13 @@ namespace Game.Runtime.Systems.Clothing
 
         [SerializeField]
         private ClothingSlot bodySlot = new ClothingSlot();
+
+        #endregion
+
+        #region Properties
+
+        public ClothingSlot BodySlot => bodySlot;
+        public ClothingSlot AccessorySlot => accessorySlot;
 
         #endregion
     }
