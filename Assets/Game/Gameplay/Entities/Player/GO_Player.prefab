@@ -122,6 +122,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 6000457785585355093}
   interactor: {fileID: 3750028719370492343}
+  windowManager: {fileID: 0}
+  inventoryMenuKey: Inventory
+  pauseMenuKey: PauseMenu
 --- !u!114 &3750028719370492343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,19 +141,6 @@ MonoBehaviour:
   interactionTooltipText: {fileID: 0}
   periodicTooltipUpdateInterval: 1.5
   tooltipDisplay: {fileID: 0}
---- !u!114 &5551857966005859220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4365407739918951316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a446f96bdb74a7da819225113e50a8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemRegistry: {fileID: 11400000, guid: bedeca01c68e42b4eb77de723c7c97a0, type: 2}
 --- !u!114 &6000457785585355093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,3 +157,21 @@ MonoBehaviour:
   animators:
   - {fileID: 4365407739918951297}
   - {fileID: 4326926562990809368}
+--- !u!114 &8173369027781942302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4365407739918951316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c14e750eb0e9400bb987913f933b5a89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveAndLoad: 1
+  _inventory:
+    itemRegistry: {fileID: 11400000, guid: bedeca01c68e42b4eb77de723c7c97a0, type: 2}
+    _itemsByQuantity:
+      keyValueList: []
+      keyCollision: 0
