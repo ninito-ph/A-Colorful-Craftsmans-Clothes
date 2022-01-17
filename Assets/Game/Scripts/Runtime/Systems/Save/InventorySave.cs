@@ -10,16 +10,24 @@ namespace Game.Runtime.Systems.Save
     [Serializable]
     public class InventorySave
     {
+        #region Public Fields
+
         [SerializeField]
-        public List<int> InventoryItemHashes;
+        public List<string> StoredInventoryItems;
 
         [SerializeField]
         public List<int> InventoryItemQuantities;
 
-        public InventorySave(List<int> inventoryItemHashes, List<int> inventoryItemQuantities)
+        #endregion
+
+        #region Constructors
+
+        public InventorySave(List<string> storedInventoryItems, List<int> inventoryItemQuantities)
         {
-            InventoryItemHashes = inventoryItemHashes;
+            StoredInventoryItems = storedInventoryItems;
             InventoryItemQuantities = inventoryItemQuantities;
         }
+
+        #endregion
     }
 }
