@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b40f92d4e22247108993746c1b803337, type: 3}
-  m_Name: HA_Orchid
+  m_Name: HA_Pansy
   m_EditorClassIdentifier: 
-  description: A white Orchid!
-  harvestableName: Orchid
-  harvestableSprite: {fileID: -2732076569047555980, guid: 05aca71ae87684949863318c6a51ae03, type: 3}
+  name: Pansy
+  description: A black Pansy!
+  graphic: {fileID: -2732076569047555980, guid: 05aca71ae87684949863318c6a51ae03, type: 3}
+  usable: 0
+  value: 1
   respawnTime: 3
-  drop: {fileID: 11400000, guid: f0810946f2aa5184e96e54bc66c532af, type: 2}
   harvestEffect: {fileID: 999232185797658373, guid: 0ad86b251cfd8c846a49a7b7f0bb8858, type: 3}
