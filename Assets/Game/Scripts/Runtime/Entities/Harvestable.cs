@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Game.Runtime.Data.Attributes;
+using Game.Runtime.Entities.Player;
 using Game.Runtime.Systems.Inventory;
 using Ninito.UsualSuspects.Interactable;
 using UnityEngine;
@@ -87,7 +88,7 @@ namespace Game.Runtime.Entities
         {
             if (_isHarvested) return;
             Harvest();
-            interactor.GameObject.GetComponent<ItemInventory>().AddItem(attributes);
+            interactor.GameObject.GetComponent<PlayerInventory>().Contents.AddItem(attributes);
         }
 
         #endregion
