@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Game.Runtime.Data.Attributes;
+using Game.Runtime.Entities.Player;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.Runtime.Systems.Inventory
 {
@@ -12,10 +12,9 @@ namespace Game.Runtime.Systems.Inventory
     {
         #region Private Fields
 
-        [FormerlySerializedAs("inventory")]
         [Header("Dependencies")]
         [SerializeField]
-        private ItemInventory itemInventory;
+        private PlayerInventory playerInventory;
 
         [SerializeField]
         private GameObject itemEntryViewPrefab;
@@ -29,13 +28,13 @@ namespace Game.Runtime.Systems.Inventory
 
         private void Start()
         {
-            itemInventory.OnInventoryModified += UpdateInventoryView;
+            playerInventory.Contents.OnInventoryModified += UpdateInventoryView;
             PaintInventoryView();
         }
 
         private void OnDestroy()
         {
-            itemInventory.OnInventoryModified -= UpdateInventoryView;
+            playerInventory.Contents.OnInventoryModified -= UpdateInventoryView;
         }
 
         #endregion
@@ -56,7 +55,7 @@ namespace Game.Runtime.Systems.Inventory
         /// </summary>
         private void PaintInventoryView()
         {
-            foreach (KeyValuePair<ItemAttributes, int> itemAndQuantity in itemInventory.ItemsByQuantity)
+            foreach (KeyValuePair<ItemAttributes, int> itemAndQuantity in playerInventory.Contents.ItemsByQuantity)
             {
                 PaintItemEntryView(itemAndQuantity.Key, itemAndQuantity.Value);
             }
