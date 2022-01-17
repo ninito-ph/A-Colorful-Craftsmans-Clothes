@@ -1,4 +1,5 @@
 ﻿using Game.Runtime.Systems.Inventory;
+using Game.Runtime.Systems.Save;
 using UnityEngine;
 
 namespace Game.Runtime.Entities.Player
@@ -30,6 +31,7 @@ namespace Game.Runtime.Entities.Player
         private void Start()
         {
             if (!saveAndLoad) return;
+            Contents.SaveKey = gameObject.name + "." + nameof(PlayerInventory);
             Contents.LoadInventory();
         }
 
