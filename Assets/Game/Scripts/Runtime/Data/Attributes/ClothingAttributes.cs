@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Runtime.Data.Attributes
 {
@@ -10,18 +11,21 @@ namespace Game.Runtime.Data.Attributes
 
         [Header("Clothing Properties")]
         [SerializeField]
-        public AnimatorOverrideController AnimatorOverrideController;
+        private AnimatorOverrideController animatorOverrideController;
 
         [SerializeField]
         [Min(1)]
-        public float DyeCostMultiplier = 1;
+        private float dyeCostMultiplier = 1;
 
         #endregion
 
         #region Properties
 
-        public Color Color { get; set; }
+        public AnimatorOverrideController OverrideController => animatorOverrideController;
+
+        public float DyeCostMultiplier => dyeCostMultiplier;
 
         #endregion
+
     }
 }
