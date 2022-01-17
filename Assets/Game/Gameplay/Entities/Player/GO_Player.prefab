@@ -55,9 +55,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: GO_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 720504132776276311, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596093252470808031, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1596093252470808031, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5925345896576276164, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5925345896576276164, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
       propertyPath: m_Controller
@@ -78,6 +90,11 @@ Animator:
 --- !u!95 &4326926562990809368 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 720504132776276311, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
+  m_PrefabInstance: {fileID: 3887708705693651023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7478478740464273035 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5925345896576276164, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
   m_PrefabInstance: {fileID: 3887708705693651023}
   m_PrefabAsset: {fileID: 0}
 --- !u!58 &5845497487451646771
@@ -157,6 +174,7 @@ MonoBehaviour:
   animators:
   - {fileID: 4365407739918951297}
   - {fileID: 4326926562990809368}
+  - {fileID: 7478478740464273035}
 --- !u!114 &8173369027781942302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,8 +188,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveAndLoad: 1
-  _inventory:
-    itemRegistry: {fileID: 11400000, guid: bedeca01c68e42b4eb77de723c7c97a0, type: 2}
-    _itemsByQuantity:
-      keyValueList: []
-      keyCollision: 0
+  _contents:
+    itemRegistry: {fileID: 0}
