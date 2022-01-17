@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Runtime.Data.Attributes
 {
@@ -7,18 +8,15 @@ namespace Game.Runtime.Data.Attributes
     /// </summary>
     [CreateAssetMenu(fileName = CreateMenus.ITEM_ATTRIBUTES_FILENAME,
         menuName = CreateMenus.ITEM_ATTRIBUTES_MENUNAME, order = CreateMenus.ITEM_ATTRIBUTES_ORDER)]
-    public sealed class ItemAttributes : ScriptableObject
+    public class ItemAttributes : Attributes
     {
         #region Private Fields
 
-        [Header("Visual")]
+        [Header("Item Properties")]
         [SerializeField]
-        private string itemName;
+        [FormerlySerializedAs("itemIcon")]
+        private Sprite graphic;
 
-        [SerializeField]
-        private Sprite itemIcon;
-
-        [Header("Properties")]
         [SerializeField]
         private bool usable = false;
 
@@ -29,8 +27,7 @@ namespace Game.Runtime.Data.Attributes
 
         #region Properties
 
-        public string Name => itemName;
-        public Sprite Icon => itemIcon;
+        public Sprite Graphic => graphic;
         public bool Usable => usable;
         public int Value => value;
 

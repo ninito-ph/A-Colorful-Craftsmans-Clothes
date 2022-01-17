@@ -9,6 +9,10 @@ namespace Game.Runtime.Data.Attributes
     {
         #region Private Fields
 
+        [Header("Base Properties")]
+        [SerializeField]
+        private string name;
+
         [SerializeField]
         [TextArea]
         private string description;
@@ -17,6 +21,7 @@ namespace Game.Runtime.Data.Attributes
 
         #region Properties
 
+        public string Name => name;
         public string Description => description;
 
         #endregion
