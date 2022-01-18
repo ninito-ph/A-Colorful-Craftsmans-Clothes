@@ -32,14 +32,28 @@ namespace Game.Runtime.Entities.Player
 
         #endregion
 
+        #region Properties
+
+        public bool InputEnabled { get; set; } = true;
+
+        #endregion
+
         #region Unity Callbacks
 
         private void Update()
         {
             if (TimeManager.IsPaused) return;
-            HandleMovementInput();
-            HandleInteractionInput();
-            HandleUIInput();
+
+            if (!InputEnabled)
+            {
+                movement.Move(0f, 0f);
+            }
+            else
+            {
+                HandleMovementInput();
+                HandleInteractionInput();
+                HandleUIInput();
+            }
         }
 
         #endregion
