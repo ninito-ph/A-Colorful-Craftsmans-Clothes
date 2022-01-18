@@ -15,10 +15,11 @@ namespace Game.Runtime.Systems.Clothing
         [Header("Equipment")]
         [SerializeField]
         public ClothingAttributes Article;
-        
+
         [Header("Dependencies")]
         [SerializeField]
         public SpriteRenderer ClothesRenderer;
+
         [SerializeField]
         public Animator ClothesAnimator;
 
@@ -45,8 +46,17 @@ namespace Game.Runtime.Systems.Clothing
         /// </summary>
         private void UpdateRendererAndAnimator()
         {
-            ClothesRenderer.color = Article.Color;
-            ClothesAnimator.runtimeAnimatorController = Article.OverrideController;
+            if (Article != null)
+            {
+                ClothesRenderer.color = Article.Color;
+                ClothesAnimator.runtimeAnimatorController = Article.OverrideController;
+            }
+            else
+            {
+                ClothesRenderer.color = Color.white;
+                ClothesRenderer.sprite = null;
+                ClothesAnimator.runtimeAnimatorController = null;
+            }
         }
 
         #endregion
