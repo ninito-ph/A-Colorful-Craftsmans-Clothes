@@ -28,6 +28,7 @@ namespace Game.Runtime.Core
         protected override void Awake()
         {
             base.Awake();
+            UpdateReferences();
             SceneManager.sceneLoaded += UpdateReferences;
         }
 
@@ -110,6 +111,16 @@ namespace Game.Runtime.Core
         /// <param name="scene">The scene loaded. Ignored.</param>
         /// <param name="mode">The mode through which the scene was loaded. Ignored.</param>
         private void UpdateReferences(Scene scene, LoadSceneMode mode)
+        {
+            DisposeOfReferences();
+            CacheReferences();
+        }
+        
+        /// <summary>
+        /// Disposes of old references and checks again for references. Used to cache references
+        /// again when loading a new scene
+        /// </summary>
+        private void UpdateReferences()
         {
             DisposeOfReferences();
             CacheReferences();
