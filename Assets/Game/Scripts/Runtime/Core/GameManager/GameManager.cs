@@ -16,7 +16,7 @@ namespace Game.Runtime.Core
         private PlayerInputHandler _inputHandler;
 
         #endregion
-        
+
         #region Properties
 
         public GameObject Player { get; private set; }
@@ -28,7 +28,7 @@ namespace Game.Runtime.Core
         protected override void Awake()
         {
             base.Awake();
-            CachePlayerReferences();
+            SceneManager.sceneLoaded += UpdateReferences;
         }
 
         private void Start()
@@ -36,8 +36,13 @@ namespace Game.Runtime.Core
             DontDestroyOnLoad(gameObject);
         }
 
+        protected override void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= UpdateReferences;
+        }
+
         #endregion
-        
+
         #region Public Methods
 
         /// <summary>
@@ -67,7 +72,14 @@ namespace Game.Runtime.Core
         /// <param name="inputEnabled">Whether the input handler should be enabled or disabled</param>
         public void SetPlayerInputEnabled(bool inputEnabled)
         {
-            _inputHandler.enabled = inputEnabled;
+            if (_inputHandler == null)
+            {
+                Debug.LogError(
+                    "Something went wrong. A script is trying to alter the player input handler, but it is null.");
+                return;
+            }
+
+            _inputHandler.InputEnabled = inputEnabled;
         }
 
         #endregion
@@ -75,11 +87,46 @@ namespace Game.Runtime.Core
         #region Private Methods
 
         /// <summary>
+        /// Disposes of existing references. Not strictly necessary but used anyway for safety
+        /// </summary>
+        private void DisposeOfReferences()
+        {
+            Player = null;
+            _inputHandler = null;
+        }
+
+        /// <summary>
+        /// Caches all references
+        /// </summary>
+        private void CacheReferences()
+        {
+            CachePlayerReferences();
+        }
+
+        /// <summary>
+        /// Disposes of old references and checks again for references. Used to cache references
+        /// again when loading a new scene
+        /// </summary>
+        /// <param name="scene">The scene loaded. Ignored.</param>
+        /// <param name="mode">The mode through which the scene was loaded. Ignored.</param>
+        private void UpdateReferences(Scene scene, LoadSceneMode mode)
+        {
+            DisposeOfReferences();
+            CacheReferences();
+        }
+
+        /// <summary>
         /// Caches all player references
         /// </summary>
         private void CachePlayerReferences()
         {
             _inputHandler = FindObjectOfType<PlayerInputHandler>();
+
+            if (_inputHandler == null)
+            {
+                return;
+            }
+
             Player = _inputHandler.gameObject;
         }
 
