@@ -1,6 +1,7 @@
 ﻿using Game.Runtime.Systems;
 using Ninito.UnityExtended.WindowManager;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Runtime.UI
 {
@@ -11,33 +12,47 @@ namespace Game.Runtime.UI
     {
         #region Private Fields
 
+        [Header("Configurations")]
+        [SerializeField]
+        private bool pauseOnOpen = true;
+
+        [SerializeField]
+        private bool resumeOnClose = true;
+
         [Header("Dependencies")]
         [SerializeField]
         private WindowManager windowManager;
 
+        [FormerlySerializedAs("hudKey")]
         [Header("UI Keys")]
         [SerializeField]
-        private string hudKey = "HUD";
+        private string onCloseMenuKey;
 
         #endregion
-        
+
         #region Unity Callbacks
 
         private void OnEnable()
         {
-            TimeManager.Pause();
+            if (pauseOnOpen)
+            {
+                TimeManager.Pause();
+            }
         }
 
         private void OnDisable()
         {
-            TimeManager.Resume();
+            if (resumeOnClose)
+            {
+                TimeManager.Resume();
+            }
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                windowManager.SwitchToMenu(hudKey);
+                windowManager.SwitchToMenu(onCloseMenuKey);
             }
         }
 
