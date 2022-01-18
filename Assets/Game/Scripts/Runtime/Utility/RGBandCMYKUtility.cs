@@ -7,6 +7,8 @@ namespace Game.Runtime.Utility
     /// </summary>
     public static class RGBandCMYKUtility
     {
+        #region Public Methods
+
         /// <summary>
         /// Converts from RGB color space to CMYK color space
         /// </summary>
@@ -66,5 +68,53 @@ namespace Game.Runtime.Utility
         {
             return ConvertCMYKtoRGB(ConvertRGBtoCMYK(rgbColor) + cmykColor);
         }
+
+        /// <summary>
+        /// Generates a random RGB color
+        /// </summary>
+        /// <param name="minValue">The minimum value of the color</param>
+        /// <param name="maxValue">The maximum value of the color</param>
+        /// <returns>A random RGB color</returns>
+        public static Color GenerateRandomRGBColor(float minValue = 0f, float maxValue = 1f)
+        {
+            float r = Random.Range(0f, 1f);
+            float g = Random.Range(0f, 1f);
+            float b = Random.Range(0f, 1f);
+
+            return new Color(r, g, b, 1f);
+        }
+
+        /// <summary>
+        /// Checks whether two colors are equal in RGB space within a certain tolerance
+        /// </summary>
+        /// <param name="colorA">The first color</param>
+        /// <param name="colorB">The second color</param>
+        /// <param name="tolerance">The tolerance to compare with</param>
+        /// <returns>Whether the colors are similar</returns>
+        public static bool AreColorsSimilar(Color colorA, Color colorB, float tolerance)
+        {
+            return IsNumberSimilar(colorA.r, colorB.r, tolerance) &&
+                   IsNumberSimilar(colorA.g, colorB.g, tolerance) &&
+                   IsNumberSimilar(colorA.b, colorB.b, tolerance);
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
+        /// Checks whether two numbers are similar enough
+        /// </summary>
+        /// <param name="a">The first number</param>
+        /// <param name="b">The second number</param>
+        /// <param name="tolerance">The tolerance between the two numbers</param>
+        /// <returns></returns>
+        private static bool IsNumberSimilar(float a, float b, float tolerance)
+        {
+            // Checks wheter the difference between the two numbers is less than the tolerance
+            return Mathf.Abs(a - b) <= tolerance;
+        }
+
+        #endregion
     }
 }
