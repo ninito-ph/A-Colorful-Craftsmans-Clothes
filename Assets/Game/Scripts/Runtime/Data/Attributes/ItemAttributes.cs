@@ -1,11 +1,9 @@
 ﻿using System;
 using Game.Runtime.Data.Registries;
-using Game.Runtime.Systems.Save;
 using Ninito.UsualSuspects.Attributes;
 using Ninito.UsualSuspects.CommonExtensions;
 using UnityEngine;
 using UnityEngine.Serialization;
-using Object = UnityEngine.Object;
 
 namespace Game.Runtime.Data.Attributes
 {
@@ -37,6 +35,7 @@ namespace Game.Runtime.Data.Attributes
 
         [Header("Internal Item Properties")]
         [ReadOnlyField]
+        [SerializeField]
         public int ID = -1;
 
         #endregion
@@ -68,6 +67,8 @@ namespace Game.Runtime.Data.Attributes
         /// <returns>The restored item</returns>
         public static ItemAttributes Restore(string data, ItemRegistry registry)
         {
+            if (String.IsNullOrEmpty(data)) return null;
+            
             StoredItemAttributes storedItemAttributes = JsonUtility.FromJson<StoredItemAttributes>(data);
             ItemAttributes itemAttributes = registry.GetItemByID(storedItemAttributes.ID);
 
