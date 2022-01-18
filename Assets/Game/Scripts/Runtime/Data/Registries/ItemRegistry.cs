@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Game.Runtime.Data.Attributes;
+using UnityEditor;
 using UnityEngine;
 
 namespace Game.Runtime.Data.Registries
@@ -19,6 +20,15 @@ namespace Game.Runtime.Data.Registries
         [ContextMenu("Auto fill")]
         private void FillSelf() => GetAllProjectItems();
 #endif
+
+        #endregion
+
+        #region Unity Callbacks
+
+        private void Awake()
+        {
+            EnsureItemsHaveID();
+        }
 
         #endregion
 
@@ -44,6 +54,36 @@ namespace Game.Runtime.Data.Registries
             Items.Add(item);
             item.ID = Items.Count - 1;
         }
+        
+        #endregion
+        
+        #region Protected Methods
+
+        /// <summary>
+        /// Ensures that all items have a valid ID.
+        /// </summary>
+        private void EnsureItemsHaveID()
+        {
+            foreach (ItemAttributes item in Items.Where(item => item.ID == -1))
+            {
+                item.ID = Items.IndexOf(item);
+            }
+        }
+        
+#if UNITY_EDITOR
+        protected override void GetAllProjectItems()
+        {
+            Items.Clear();
+
+            foreach (Object foundObject in Resources.FindObjectsOfTypeAll(typeof(ItemAttributes))
+                         .OrderBy(item => item.name))
+            {
+                ItemAttributes item = (ItemAttributes)foundObject;
+                if (!EditorUtility.IsPersistent(item)) continue;
+                Add(item);
+            }
+        }
+#endif
 
         #endregion
     }
