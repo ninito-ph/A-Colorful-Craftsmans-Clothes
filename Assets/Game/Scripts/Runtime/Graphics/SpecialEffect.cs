@@ -3,7 +3,7 @@ using Game.Runtime.Systems.CameraShake;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Game.Runtime.Entities
+namespace Game.Runtime.Graphics
 {
     /// <summary>
     /// A class that controls special effects
