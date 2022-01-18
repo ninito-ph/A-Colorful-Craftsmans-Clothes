@@ -36,5 +36,21 @@
         public const int CLOTHING_ATTRIBUTES_ORDER = 0;
 
         #endregion
+
+        #region Dialogue
+
+        public const string DIALOGUE_FILENAME = "Dialogue Passage";
+        public const string DIALOGUE_MENUNAME = "Ninito/Game/Dialogue Passage";
+        public const int DIALOGUE_ORDER = 0;
+
+        #endregion
+
+        #region Orders
+
+        public const string ORDER_GENERATOR_FILENAME = "Order Generator";
+        public const string ORDER_GENERATOR_MENUNAME = "Ninito/Game/Order Generator";
+        public const int ORDER_GENERATOR_ORDER = 0;
+
+        #endregion
     }
 }
