@@ -140,11 +140,8 @@ namespace Game.Runtime.Systems.Inventory
             for (int index = 0; index < save.InventoryItemQuantities.Count; index++)
             {
                 ItemAttributes item = ItemAttributes.Restore(save.StoredInventoryItems[index], itemRegistry);
-                ItemsByQuantity.Add(item, save.InventoryItemQuantities[index]);
+                AddItem(item, save.InventoryItemQuantities[index]);
             }
-
-            if (ItemsByQuantity.Count <= 0) return;
-            OnInventoryModified?.Invoke(null, 0);
         }
 
         #endregion
