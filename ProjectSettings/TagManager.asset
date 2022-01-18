@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2261924033
+    locked: 0
+  - name: Objects
+    uniqueID: 1910563471
+    locked: 0
+  - name: Effects
+    uniqueID: 599620093
+    locked: 0
+  - name: Overlay
+    uniqueID: 3550553161
+    locked: 0
