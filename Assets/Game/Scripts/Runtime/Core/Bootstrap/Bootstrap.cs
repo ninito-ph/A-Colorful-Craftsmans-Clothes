@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Game.Runtime.Core
 {
@@ -14,20 +14,13 @@ namespace Game.Runtime.Core
         [SerializeField]
         private string postInitializeSceneName = "SA_MainMenu";
         
-        private GameManager _gameManager;
-
         #endregion
 
         #region Unity Callbacks
 
-        private void Awake()
-        {
-            _gameManager = FindObjectOfType<GameManager>();
-        }
-
         private void Start()
         {
-            _gameManager.LoadScene(postInitializeSceneName);
+            SceneManager.LoadSceneAsync(postInitializeSceneName);
         }
 
         #endregion
