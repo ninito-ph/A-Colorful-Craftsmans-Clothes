@@ -13,10 +13,12 @@ namespace Game.Runtime.Data.Registries
     {
         #region Private Methods
 
+#if UNITY_EDITOR
         // Normally I wouldn't need to do this, but ContextMenu not showing up in inherited classes
         // is a regression bug present in this Unity version :(
         [ContextMenu("Auto fill")]
         private void FillSelf() => GetAllProjectItems();
+#endif
 
         #endregion
 
@@ -31,7 +33,7 @@ namespace Game.Runtime.Data.Registries
         {
             return Items.FirstOrDefault(item => item.ID == itemID);
         }
-        
+
         /// <summary>
         /// Adds an item to the registry and sets its ID.
         /// </summary>
