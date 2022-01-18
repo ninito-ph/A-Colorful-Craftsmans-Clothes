@@ -1,5 +1,4 @@
 ﻿using Game.Runtime.Systems.Inventory;
-using Game.Runtime.Systems.Save;
 using UnityEngine;
 
 namespace Game.Runtime.Entities.Player
@@ -7,7 +6,7 @@ namespace Game.Runtime.Entities.Player
     /// <summary>
     /// A class that controls the player's inventory
     /// </summary>
-    public sealed class PlayerInventory : MonoBehaviour
+    public sealed class PlayerInventory : InventoryProvider
     {
         #region Private Fields
 
@@ -22,7 +21,7 @@ namespace Game.Runtime.Entities.Player
 
         #region Properties
 
-        public ItemInventory Contents => _contents;
+        public override ItemInventory Contents => _contents;
 
         #endregion
 
