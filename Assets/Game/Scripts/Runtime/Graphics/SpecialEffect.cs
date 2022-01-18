@@ -1,5 +1,4 @@
 using System.Collections;
-using Game.Runtime.Systems.CameraShake;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

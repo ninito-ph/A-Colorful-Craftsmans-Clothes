@@ -3,7 +3,7 @@ using Cinemachine;
 using Ninito.UsualSuspects;
 using UnityEngine;
 
-namespace Game.Runtime.Systems.CameraShake
+namespace Game.Runtime.Graphics
 {
     /// <summary>
     /// A class responsible for shaking the cmaera
