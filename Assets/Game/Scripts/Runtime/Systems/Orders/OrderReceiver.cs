@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Game.Runtime.Systems.Orders
 {
     /// <summary>
-    /// 
+    /// A class that receives items and attempts to complete orders with them
     /// </summary>
     public sealed class OrderReceiver : MonoBehaviour
     {
@@ -21,6 +21,11 @@ namespace Game.Runtime.Systems.Orders
 
         #region Public Methods
 
+        /// <summary>
+        /// Attempts to complete as many orders as possible using the given inventory
+        /// </summary>
+        /// <param name="inventoryProvider">The inventory provider to check for order-completing items</param>
+        /// <returns>The amount of complete orders</returns>
         public int TryCompleteOrders(InventoryProvider inventoryProvider)
         {
             List<Order> activeOrders = orderManager.Orders;
@@ -36,7 +41,6 @@ namespace Game.Runtime.Systems.Orders
                 activeOrders[index].IsCompleted = true;
             }
 
-            Debug.Log(completedOrders);
             return completedOrders;
         }
 
