@@ -28,6 +28,9 @@ namespace Game.Runtime.Core
         [SerializeField]
         private bool loadAdditively = true;
         
+        [SerializeField]
+        private string defaultSceneName = "SA_MainMenu";
+        
         private AsyncOperation _loadOperation;
         private static string _sceneToLoad;
 
@@ -43,13 +46,16 @@ namespace Game.Runtime.Core
 
         private void Start()
         {
+            DontDestroyOnLoad(gameObject);
+            string sceneName = _sceneToLoad == String.Empty ? defaultSceneName : _sceneToLoad;
+            
             if (loadAdditively)
             {
-                StartCoroutine(LoadSceneAdditive(_sceneToLoad));
+                StartCoroutine(LoadSceneAdditive(sceneName));
             }
             else
             {
-                LoadSceneNormal(_sceneToLoad);
+                LoadSceneNormal(sceneName);
             }
         }
 
