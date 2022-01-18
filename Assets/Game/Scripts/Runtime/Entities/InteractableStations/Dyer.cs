@@ -1,15 +1,14 @@
 ﻿using Game.Runtime.Entities.Player;
-using Game.Runtime.Systems.Inventory;
-using Ninito.UnityExtended.WindowManager;
+using Game.Runtime.Systems.Clothing.Dyeing;
 using Ninito.UsualSuspects.Interactable;
 using UnityEngine;
 
-namespace Game.Runtime.Systems.Clothing.Dyeing
+namespace Game.Runtime.Entities.InteractableStations
 {
     /// <summary>
     /// A class that controls the physical dyeing station
     /// </summary>
-    public sealed class DyeingStation : MonoBehaviour, IInteractable
+    public sealed class Dyer : InteractableStation
     {
         #region Private Fields
 
@@ -17,22 +16,16 @@ namespace Game.Runtime.Systems.Clothing.Dyeing
         [SerializeField]
         private DyeingManager dyeingManager;
         
-        [SerializeField]
-        private WindowManager windowManager;
-
-        [SerializeField]
-        private string dyeingMenuKey = "DyeingMenu";
-
         #endregion
         
         #region IInteractable Implementation
 
-        public string InteractionToolTip => "Press E to open the dyeing menu";
+        public override string InteractionToolTip => "Press E to open the dyeing menu";
 
-        public void InteractWithAs(IInteractor interactor)
+        public override void InteractWithAs(IInteractor interactor)
         {
             dyeingManager.PlayerInventory = interactor.GameObject.GetComponent<PlayerInventory>().Contents;
-            windowManager.SwitchToMenu(dyeingMenuKey);
+            base.InteractWithAs(interactor);
         }
 
         #endregion
