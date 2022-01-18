@@ -4,7 +4,6 @@ using System.Linq;
 using Game.Runtime.Data.Attributes;
 using Game.Runtime.Data.Registries;
 using Game.Runtime.Systems.Save;
-using Ninito.UsualSuspects;
 using UnityEngine;
 
 namespace Game.Runtime.Systems.Inventory
@@ -58,6 +57,8 @@ namespace Game.Runtime.Systems.Inventory
         /// <exception cref="ArgumentOutOfRangeException">Exception thrown if trying to add a negative quantity</exception>
         public void AddItem(ItemAttributes item, int quantity = 1)
         {
+            if (item == null) return;
+            
             if (quantity < 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(quantity), quantity,
@@ -106,14 +107,8 @@ namespace Game.Runtime.Systems.Inventory
         /// <returns>Whether the player has the specified quantity (default 1) of the given item</returns>
         public bool HasItem(ItemAttributes item, int quantity = 1)
         {
-            if (ItemsByQuantity.ContainsKey(item))
-            {
-                return ItemsByQuantity[item] >= quantity;
-            }
-            else
-            {
-                return false;
-            }
+            if (!ItemsByQuantity.ContainsKey(item)) return false;
+            return ItemsByQuantity[item] >= quantity;
         }
 
         /// <summary>
