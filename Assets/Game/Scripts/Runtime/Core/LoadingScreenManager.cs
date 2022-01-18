@@ -33,6 +33,12 @@ namespace Game.Runtime.Core
 
         #endregion
 
+        #region Properties
+
+        public Action OnLoadingFinished { get; set; }
+
+        #endregion
+
         #region Unity Callbacks
 
         private void Start()
@@ -98,6 +104,20 @@ namespace Game.Runtime.Core
         {
             yield return new WaitForSeconds(loadingScreenDelay);
             _loadOperation = SceneManager.LoadSceneAsync(sceneName);
+            _loadOperation.completed += NotifyLoadingFinished;
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
+        /// Notifies other scripts that loading has finished
+        /// </summary>
+        /// <param name="operation">The related loading operation. Ignored.</param>
+        private void NotifyLoadingFinished(AsyncOperation operation)
+        {
+            OnLoadingFinished?.Invoke();
         }
 
         #endregion
