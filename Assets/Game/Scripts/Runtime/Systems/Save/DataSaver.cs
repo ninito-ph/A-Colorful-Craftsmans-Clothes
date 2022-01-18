@@ -21,6 +21,17 @@ namespace Game.Runtime.Systems.Save
             PlayerPrefs.Save();
         }
         
+        /// <summary>
+        /// Saves a string to the specified key
+        /// </summary>
+        /// <param name="data">The data to save</param>
+        /// <param name="saveKey">The key to save to</param>
+        public static void SaveData(string data, string saveKey)
+        {
+            PlayerPrefs.SetString(saveKey, data);
+            PlayerPrefs.Save();
+        }
+        
         #endregion
     }
 }
