@@ -85,7 +85,7 @@ namespace Game.Runtime.Systems.Inventory
         /// <returns>Whether the specified quantity of the given item was removed</returns>
         public bool TryRemoveItem(ItemAttributes item, int quantity = 1)
         {
-            if (!ItemsByQuantity.ContainsKey(item)) return false;
+            if (item == null || !ItemsByQuantity.ContainsKey(item)) return false;
             if (ItemsByQuantity[item] < quantity) return false;
 
             ItemsByQuantity[item] -= quantity;
