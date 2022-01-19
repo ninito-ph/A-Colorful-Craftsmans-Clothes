@@ -19,12 +19,16 @@ namespace Game.Runtime.Systems.Dialogue
         [Tooltip("A dictionary containing keys that can be replaced in the text")]
         private SerializedDictionary<string, string> keysAndReplacements = new SerializedDictionary<string, string>();
 
+        #endregion
+        
+        #region Public Fields
+        
         [SerializeField]
-        private string speakerName = "John Doe";
+        public string SpeakerName = "John Doe";
         
         [SerializeField]
         [TextArea]
-        private string text = "Hey there! My name is John Doe. I'm a dummy character. I'm here to talk to you.";
+        public string InternalText = "Hey there! My name is John Doe. I'm a dummy character. I'm here to talk to you.";
 
         #endregion
 
@@ -32,7 +36,6 @@ namespace Game.Runtime.Systems.Dialogue
 
         public SerializedDictionary<string, string> KeysAndReplacements => keysAndReplacements;
 
-        public string SpeakerName => speakerName;
         public string Text => ReplaceKeys();
 
         #endregion
@@ -45,7 +48,7 @@ namespace Game.Runtime.Systems.Dialogue
         /// <returns>The original text with keys replaced by values</returns>
         private string ReplaceKeys()
         {
-            return keysAndReplacements.Aggregate(text,
+            return keysAndReplacements.Aggregate(InternalText,
                 (current, keyAndReplacement) => current.Replace(keyAndReplacement.Key, keyAndReplacement.Value));
         }
 
