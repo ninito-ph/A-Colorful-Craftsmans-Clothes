@@ -25,11 +25,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 677476517689455558, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.34
+      value: 6.4963026
       objectReference: {fileID: 0}
     - target: {fileID: 677476517689455558, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: -2.1261458
       objectReference: {fileID: 0}
     - target: {fileID: 677476517689455558, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
       propertyPath: m_LocalPosition.z
@@ -112,3 +112,19 @@ MonoBehaviour:
   orderCompleteEffect: {fileID: 999232185797658373, guid: 742a0323ab45e324aabe31bbf8ffcd6e, type: 3}
   orderCompleteEffectInterval: 0.75
   pitchIncreasePerOrderComplete: 0.15
+--- !u!58 &848419036
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377545435575547990}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.2}
+  serializedVersion: 2
+  m_Radius: 0.75
