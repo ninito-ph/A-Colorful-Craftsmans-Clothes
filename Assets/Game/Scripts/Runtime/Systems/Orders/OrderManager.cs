@@ -48,7 +48,7 @@ namespace Game.Runtime.Systems.Orders
 
         private void Awake()
         {
-            if (!TryLoad())
+            if (!TryLoad() || Orders == null || Orders.Count == 0)
             {
                 GenerateNewOrders();
             }
@@ -64,7 +64,6 @@ namespace Game.Runtime.Systems.Orders
         }
 
         #endregion
-
 
         #region Private Methods
 
