@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39c95ef34a0440bb53c714d56a8c276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windowManager: {fileID: 0}
-  wardrobeWindowKey: WardrobeMenu
+  _windowManager: {fileID: 0}
+  windowKey: WardrobeMenu
   wardrobeManager: {fileID: 0}
 --- !u!61 &3152197258677420312
 BoxCollider2D:
