@@ -9,7 +9,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5234539727022776385, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5234539727022776385, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
+      propertyPath: bodySlot.Article
+      value: 
+      objectReference: {fileID: 11400000, guid: 9595b6280701ff84894ab3639d94f14e, type: 2}
+    - target: {fileID: 677476517689455557, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
+      propertyPath: m_BodyType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 677476517689455558, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
       propertyPath: m_RootOrder
@@ -17,11 +25,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 677476517689455558, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.34
       objectReference: {fileID: 0}
     - target: {fileID: 677476517689455558, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 677476517689455558, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
       propertyPath: m_LocalPosition.z
@@ -65,3 +73,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
+--- !u!1 &1377545435575547990 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 677476517689455579, guid: 97b2dea482525ab4d87c55e12c507865, type: 3}
+  m_PrefabInstance: {fileID: 1907528479876615053}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &291213549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377545435575547990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c749d15558d54e9aa339488ab555c079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderManager: {fileID: 0}
+--- !u!114 &291213555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377545435575547990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc097019c8284d998a47524a75a68f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcName: Joe Mr.Shopkeep
+  dialogueManager: {fileID: 0}
+  onOrdersOngoing:
+  - {fileID: 11400000, guid: e4dd435821ed7cd4ab41b1c2c4e215dd, type: 2}
+  onOrderComplete:
+  - {fileID: 11400000, guid: 78309023754af13458089ce6f095bdf8, type: 2}
+  orderCompleteEffect: {fileID: 999232185797658373, guid: 742a0323ab45e324aabe31bbf8ffcd6e, type: 3}
+  orderCompleteEffectInterval: 0.75
+  pitchIncreasePerOrderComplete: 0.15
