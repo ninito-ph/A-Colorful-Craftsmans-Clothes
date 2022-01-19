@@ -2957,11 +2957,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc097019c8284d998a47524a75a68f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcName: Joe, the Shopkeeper
+  npcName: Joe Mr.Shopkeep
   dialogueManager: {fileID: 839897752}
-  onOrdersOngoing: []
-  onOrderComplete: []
-  onAllOrdersComplete: []
+  onOrdersOngoing:
+  - {fileID: 11400000, guid: e4dd435821ed7cd4ab41b1c2c4e215dd, type: 2}
+  onOrderComplete:
+  - {fileID: 11400000, guid: 78309023754af13458089ce6f095bdf8, type: 2}
+  orderCompleteEffect: {fileID: 999232185797658373, guid: 742a0323ab45e324aabe31bbf8ffcd6e, type: 3}
+  orderCompleteEffectInterval: 0.75
+  pitchIncreasePerOrderComplete: 0.15
 --- !u!1 &298042825
 GameObject:
   m_ObjectHideFlags: 0
@@ -4751,6 +4755,10 @@ PrefabInstance:
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 1748930708}
+    - target: {fileID: 3325721562055681437, guid: 718d33ddd9d518043ab4c31bc8b2bba2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -74.06543
+      objectReference: {fileID: 0}
     - target: {fileID: 5342120979437114312, guid: 718d33ddd9d518043ab4c31bc8b2bba2, type: 3}
       propertyPath: m_Name
       value: GO_InventoryAndOrders
@@ -5679,12 +5687,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1919470110}
     - target: {fileID: 2935874223176998089, guid: e1364658d76647941887db9fe02d5fb4, type: 3}
-      propertyPath: windowManager
+      propertyPath: _windowManager
       value: 
       objectReference: {fileID: 949827341}
     - target: {fileID: 2935874223176998090, guid: e1364658d76647941887db9fe02d5fb4, type: 3}
       propertyPath: m_Name
       value: Dyeing Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 7397732898185226944, guid: e1364658d76647941887db9fe02d5fb4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1364658d76647941887db9fe02d5fb4, type: 3}
@@ -5754,6 +5766,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3152197258677420295, guid: ad275a96fe9768b4da367b5406d25fbe, type: 3}
       propertyPath: windowManager
+      value: 
+      objectReference: {fileID: 949827341}
+    - target: {fileID: 3152197258677420295, guid: ad275a96fe9768b4da367b5406d25fbe, type: 3}
+      propertyPath: _windowManager
       value: 
       objectReference: {fileID: 949827341}
     - target: {fileID: 3152197258677420295, guid: ad275a96fe9768b4da367b5406d25fbe, type: 3}
