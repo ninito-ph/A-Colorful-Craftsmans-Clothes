@@ -39,6 +39,12 @@ namespace Game.Runtime.Systems.Orders
 
         #endregion
 
+        #region Properties
+
+        public ItemRegistry ItemRegistry => itemRegistry;
+
+        #endregion
+
         #region Public Methods
 
         /// <summary>
