@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections;
 using Game.Runtime.Systems.Dialogue;
 using Game.Runtime.Systems.Inventory;
 using Game.Runtime.Systems.Orders;
@@ -22,11 +22,20 @@ namespace Game.Runtime.Entities
         [SerializeField]
         private DialoguePassage[] onOrderComplete;
 
+        [Header("Dependencies")]
         [SerializeField]
-        private DialoguePassage[] onAllOrdersComplete;
+        private GameObject orderCompleteEffect;
+
+        [Header("Configurations")]
+        [SerializeField]
+        [Min(0.1f)]
+        private float orderCompleteEffectInterval = 0.75f;
+
+        [SerializeField]
+        private float pitchIncreasePerOrderComplete = 0.15f;
 
         private OrderReceiver _orderReceiver;
-        
+
         #endregion
 
         #region Unity Callbacks
@@ -37,14 +46,53 @@ namespace Game.Runtime.Entities
         }
 
         #endregion
-        
+
         #region IInteractable Implementation
 
         public override void InteractWithAs(IInteractor interactor)
         {
-            Debug.Log("Interacting with shopkeep");
-            _orderReceiver.TryCompleteOrders(interactor.GameObject.GetComponent<InventoryProvider>());
-            //dialogueManager.StartDialogue(dialoguePassages, transform);
+            dialogueManager.StartDialogue(ReceiveOrdersFrom(interactor) ? onOrderComplete : onOrdersOngoing, transform);
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
+        /// Receives items from the given interactor
+        /// </summary>
+        /// <param name="interactor"></param>
+        /// <returns>Whether any order was complete</returns>
+        private bool ReceiveOrdersFrom(IInteractor interactor)
+        {
+            int completedOrders =
+                _orderReceiver.TryCompleteOrders(interactor.GameObject.GetComponent<InventoryProvider>());
+
+            if (completedOrders > 0)
+            {
+                StartCoroutine(InstantiateCompleteOrderEffects(interactor.GameObject.transform, completedOrders));
+            }
+
+            return completedOrders > 0;
+        }
+
+        /// <summary>
+        /// Instantiates a number of order complete effects at the target's position
+        /// </summary>
+        /// <param name="targetTransform">The target's transform</param>
+        /// <param name="amount">The amount of effects to instantiate</param>
+        private IEnumerator InstantiateCompleteOrderEffects(Transform targetTransform, int amount)
+        {
+            WaitForSeconds wait = new WaitForSeconds(orderCompleteEffectInterval);
+
+            for (int index = 0; index < amount; index++)
+            {
+                GameObject completeEffect =
+                    Instantiate(orderCompleteEffect, targetTransform.position, Quaternion.identity);
+                completeEffect.GetComponent<AudioSource>().pitch += index * pitchIncreasePerOrderComplete;
+
+                yield return wait;
+            }
         }
 
         #endregion
