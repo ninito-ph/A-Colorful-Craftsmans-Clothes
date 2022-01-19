@@ -1,8 +1,8 @@
 ﻿using System;
 using Game.Runtime.Data.Attributes;
 using Game.Runtime.Data.Registries;
-using Game.Runtime.Systems.Inventory;
 using Game.Runtime.Systems.Save;
+using Game.Runtime.Systems.Save.Saves;
 using Ninito.UsualSuspects.Attributes;
 using UnityEngine;
 
