@@ -1,3 +1,4 @@
+using System;
 using Game.Runtime.Entities.Player;
 using Ninito.UsualSuspects;
 using UnityEditor;
@@ -14,12 +15,14 @@ namespace Game.Runtime.Core
         #region Private Fields
 
         private PlayerInputHandler _inputHandler;
+        private float _time;
 
         #endregion
 
         #region Properties
 
         public GameObject Player { get; private set; }
+        public float LastSavedTime => _time;
 
         #endregion
 
@@ -35,6 +38,12 @@ namespace Game.Runtime.Core
         private void Start()
         {
             DontDestroyOnLoad(gameObject);
+        }
+
+        private void Update()
+        {
+            if (Time.time == 0) return;
+            _time = Time.time;
         }
 
         protected override void OnDestroy()
