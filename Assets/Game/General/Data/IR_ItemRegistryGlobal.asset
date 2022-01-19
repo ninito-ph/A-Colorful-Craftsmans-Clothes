@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: IR_ItemRegistryGlobal
   m_EditorClassIdentifier: 
   Items:
+  - {fileID: 11400000, guid: e368a83993d97f6479591485bdbee620, type: 2}
   - {fileID: 11400000, guid: e8184aa973c07d049a04374deef449ff, type: 2}
   - {fileID: 11400000, guid: 7348605365245f745abf6e881dcc256b, type: 2}
   - {fileID: 11400000, guid: f733767fccd1ee24bb30972251fe3093, type: 2}
   - {fileID: 11400000, guid: e566d2ba90ce2ee44807632c0c808292, type: 2}
   - {fileID: 11400000, guid: 9595b6280701ff84894ab3639d94f14e, type: 2}
   - {fileID: 11400000, guid: a9cc514c2e3159845a6fd535abc7d725, type: 2}
+  - {fileID: 11400000, guid: 076f2db32740194498243fe86c38ade3, type: 2}
   - {fileID: 11400000, guid: 5115f608d3819514fa0d59c462ef09f5, type: 2}
   - {fileID: 11400000, guid: 79eafcd5edd43114b93f67e7908022ce, type: 2}
   - {fileID: 11400000, guid: 1341885a56acb834bb9abfedd55f186d, type: 2}
