@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64a2f5d5d47940b6a50ad723aa1da1c9, type: 3}
   m_Name: CA_FloralShirt
   m_EditorClassIdentifier: 
-  name: 
-  description: 
-  graphic: {fileID: 0}
+  name: Floral Shirt
+  description: The game's official Tee!
+  graphic: {fileID: 21300000, guid: bb74c9e1c67f70e4d8d72f7e2fbe4650, type: 3}
   Color: {r: 1, g: 1, b: 1, a: 1}
-  ID: -1
-  animatorOverrideController: {fileID: 0}
-  dyeCostMultiplier: 1
+  ID: 0
+  animatorOverrideController: {fileID: 22100000, guid: 9c710615e0d084d43839fba1eb8145dc, type: 2}
+  dyeCostMultiplier: 1.25
   type: 0
