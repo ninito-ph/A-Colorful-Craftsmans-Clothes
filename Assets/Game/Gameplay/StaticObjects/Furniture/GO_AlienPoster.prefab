@@ -102,7 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f65d6df68aa3477bb8c58d35fefe2415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dialogueManager: {fileID: 0}
   dialogue: I love this movie! The little Alien mouth inside the big Alien mouth
-    so cute! It's like a little baby monster!
+    is so cute! It's like a little baby monster!
   speakerName: You
   interactionTooltip: Press E to inspect the poster
