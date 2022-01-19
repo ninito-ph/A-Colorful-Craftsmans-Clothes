@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AOC_CowboyHat
+  m_Controller: {fileID: 9100000, guid: 00f9b4cb2dc4a86448c48a557d323fff, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: fd290417946e27f41af0b1ce0fb34df2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c4eaa82b2934b1845a2fec9fc59398a8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 708cd0c5d883128439ffa05b5bb1d7b0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4d3cb07becd58ff468e766a4975c2d16, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 953afbdfeee5d664caf12370e21a5f87, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c24b29219c200db4cb4660f951b8d059, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: cfdfef4511c83014bbaeb5780de15330, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1739b37d698918c4a8fffdfd330008a3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c298e5c8952926e45aebe55fb9f2b6a7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: eb913d773151df74b8f11c4e0d737227, type: 2}
