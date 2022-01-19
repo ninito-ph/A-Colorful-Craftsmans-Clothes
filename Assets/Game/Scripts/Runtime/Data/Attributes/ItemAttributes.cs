@@ -21,12 +21,6 @@ namespace Game.Runtime.Data.Attributes
         [FormerlySerializedAs("itemIcon")]
         private Sprite graphic;
 
-        [SerializeField]
-        private bool usable = false;
-
-        [SerializeField]
-        private int value = 1;
-
         #endregion
 
         #region Public Fields
@@ -43,8 +37,6 @@ namespace Game.Runtime.Data.Attributes
         #region Properties
 
         public Sprite Graphic => graphic;
-        public bool Usable => usable;
-        public int Value => value;
 
         #endregion
 
@@ -88,7 +80,7 @@ namespace Game.Runtime.Data.Attributes
 
         public override int GetHashCode()
         {
-            return Name.GetHashCode() ^ Value.GetHashCode() ^ Description.GetHashCode() ^ Color.GetHashCode();
+            return Name.GetHashCode() ^ Description.GetHashCode() ^ Color.GetHashCode();
         }
 
         public override bool Equals(object other)
