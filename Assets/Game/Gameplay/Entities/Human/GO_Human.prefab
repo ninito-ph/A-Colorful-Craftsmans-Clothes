@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 677476517689455577}
   - component: {fileID: 677476517689455557}
   - component: {fileID: 677476517689455566}
-  - component: {fileID: 5531578946275087828}
   - component: {fileID: -5234539727022776385}
+  - component: {fileID: 332118176790283999}
   m_Layer: 0
   m_Name: GO_Human
   m_TagString: Untagged
@@ -129,22 +129,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!70 &5531578946275087828
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677476517689455579}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2}
-  m_Size: {x: 0.4, y: 0.6}
-  m_Direction: 0
 --- !u!114 &-5234539727022776385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +151,22 @@ MonoBehaviour:
     Article: {fileID: 0}
     ClothesRenderer: {fileID: 1596093252470808031}
     ClothesAnimator: {fileID: 720504132776276311}
+--- !u!58 &332118176790283999
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677476517689455579}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.5}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!1 &5110233732566705640
 GameObject:
   m_ObjectHideFlags: 0
