@@ -1,4 +1,5 @@
-﻿using Ninito.UsualSuspects.Attributes;
+﻿using System;
+using Ninito.UsualSuspects.Attributes;
 using UnityEngine;
 
 namespace Game.Runtime.Entities.Player
@@ -6,7 +7,7 @@ namespace Game.Runtime.Entities.Player
     /// <summary>
     /// A class responsible for controlling player movement.
     /// </summary>
-    [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public sealed class PlayerMovement : MonoBehaviour
     {
         #region Private Fields
@@ -15,26 +16,46 @@ namespace Game.Runtime.Entities.Player
         private float speed = 5f;
 
         [SerializeField]
+        private float deadZoneThreshold = 0.1f;
+
+        [SerializeField]
         private Animator[] animators;
 
-#if UNITY_EDITOR
-        [Header("Debugging Values")]
-        [SerializeField]
-        [ReadOnlyField]
-        private float hAxisInput;
-
-        [SerializeField]
-        [ReadOnlyField]
-        private float vAxisInput;
-
-        [SerializeField]
-        [ReadOnlyField]
-        private Vector3 movementPreview;
-#endif
+        private Vector2 _inputs;
+        private Rigidbody2D _rigidbody;
 
         private static readonly int _horizontalAnimProperty = Animator.StringToHash("Horizontal");
         private static readonly int _verticalAnimProperty = Animator.StringToHash("Vertical");
         private static readonly int _speedAnimProperty = Animator.StringToHash("Speed");
+
+        #endregion
+
+        #region Properties
+
+        private Vector2 PositionDelta => _inputs * speed * Time.fixedDeltaTime;
+
+        private bool InputIsAboveDeadZone =>
+            Mathf.Abs(_inputs.x) > deadZoneThreshold || Mathf.Abs(_inputs.y) > deadZoneThreshold;
+
+        #endregion
+
+        #region Unity Callbacks
+
+        private void Awake()
+        {
+            TryGetComponent(out _rigidbody);
+        }
+
+        private void FixedUpdate()
+        {
+            if (!InputIsAboveDeadZone) return;
+            Move();
+        }
+
+        private void Update()
+        {
+            UpdateAnimatorValues(_inputs);
+        }
 
         #endregion
 
@@ -45,28 +66,29 @@ namespace Game.Runtime.Entities.Player
         /// </summary>
         /// <param name="horizontal">The horizontal axis input</param>
         /// <param name="vertical">The vertical axis input</param>
-        public void Move(float horizontal, float vertical)
+        public void ProcessInput(float horizontal, float vertical)
         {
-            Vector3 movement = new Vector3(horizontal, vertical);
+            Vector2 inputs = new Vector2(horizontal, vertical);
 
-            if (movement.sqrMagnitude > 1f)
+            if (inputs.sqrMagnitude > 1f)
             {
-                movement.Normalize();
+                inputs.Normalize();
             }
 
-#if UNITY_EDITOR
-            hAxisInput = horizontal;
-            vAxisInput = vertical;
-            movementPreview = movement * speed * Time.fixedDeltaTime;
-#endif
-
-            transform.Translate(movement * speed * Time.fixedDeltaTime);
-            UpdateAnimatorValues(movement);
+            _inputs = inputs;
         }
 
         #endregion
 
         #region Private Methods
+
+        /// <summary>
+        /// Moves the player using the given axis inputs
+        /// </summary>
+        private void Move()
+        {
+            _rigidbody.MovePosition(_rigidbody.position + PositionDelta);
+        }
 
         /// <summary>
         /// Updates animator values
