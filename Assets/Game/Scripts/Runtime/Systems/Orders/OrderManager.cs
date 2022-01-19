@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Game.Runtime.Systems.Save;
+using Game.Runtime.Systems.Save.Saves;
 using UnityEngine;
 
 namespace Game.Runtime.Systems.Orders
@@ -45,9 +48,19 @@ namespace Game.Runtime.Systems.Orders
 
         private void Awake()
         {
-            GenerateNewOrders();
+            if (!TryLoad())
+            {
+                GenerateNewOrders();
+            }
+
             _checkExpirationRoutine = StartCoroutine(MonitorOrders());
             OnOrdersUpdated += HandleOrderProgress;
+        }
+
+        private void OnDestroy()
+        {
+            OnOrdersUpdated -= HandleOrderProgress;
+            Save();
         }
 
         #endregion
@@ -124,6 +137,37 @@ namespace Game.Runtime.Systems.Orders
             Orders.RemoveAt(index);
             OnOrdersUpdated?.Invoke();
             OnOrderCompleted?.Invoke();
+        }
+
+        /// <summary>
+        /// Saves all orders to an <see cref="OrderManagerSave"/> in a key with the same name as the class
+        /// </summary>
+        private void Save()
+        {
+            List<string> orderStrings = _orders.Select(order => order.Store()).ToList();
+            OrderManagerSave save = new OrderManagerSave(orderStrings);
+            DataSaver.SaveData(save, nameof(OrderManager));
+        }
+
+        /// <summary>
+        /// Loads all orders from
+        /// </summary>
+        /// <returns>Whether anything was loaded</returns>
+        private bool TryLoad()
+        {
+            if (!DataLoader.TryLoad(nameof(OrderManager), out OrderManagerSave save)) return false;
+            List<Order> orders = save.Orders
+                .Select(orderString => Order.Restore(orderString, orderGenerator.ItemRegistry))
+                .Where(order => order != null).ToList();
+            Orders = orders;
+
+            if (Orders.All(order => order == null))
+            {
+                Debug.LogError("All loaded orders were null!");
+            }
+
+            OnOrdersUpdated?.Invoke();
+            return true;
         }
 
         #endregion
