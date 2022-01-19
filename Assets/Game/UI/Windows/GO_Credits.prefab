@@ -378,10 +378,10 @@ MonoBehaviour:
     - Sounds by
     ZapSplat
 
-    - Music "Farm" and "Wholesome" by Kevin MacLeod
+    - Music "Farm", "Wholesome" and "Local Forecast" by Kevin MacLeod
 
-    - Notepen
-    font by jeti'
+    -
+    Notepen font by jeti'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 537f65878067c40438eab3f697b1a9ab, type: 2}
   m_sharedMaterial: {fileID: 5892000040513127067, guid: 537f65878067c40438eab3f697b1a9ab, type: 2}
