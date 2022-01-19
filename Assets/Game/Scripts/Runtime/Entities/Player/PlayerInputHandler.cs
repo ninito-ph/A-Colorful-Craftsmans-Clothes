@@ -46,7 +46,7 @@ namespace Game.Runtime.Entities.Player
 
             if (!InputEnabled)
             {
-                movement.Move(0f, 0f);
+                movement.ProcessInput(0f, 0f);
             }
             else
             {
@@ -79,7 +79,7 @@ namespace Game.Runtime.Entities.Player
 
             if (horizontal == 0 && vertical == 0) return;
 
-            movement.Move(horizontal, vertical);
+            movement.ProcessInput(horizontal, vertical);
         }
 
         /// <summary>
