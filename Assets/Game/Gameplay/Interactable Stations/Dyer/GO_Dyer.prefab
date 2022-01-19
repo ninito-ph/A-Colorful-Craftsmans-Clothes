@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2935874223176998094}
   - component: {fileID: 2935874223176998089}
   m_Layer: 0
-  m_Name: GO_DyeingStation
+  m_Name: GO_Dyer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,6 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 545fff5098af40aa940dc84a23237cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windowManager: {fileID: 0}
+  windowKey: DyeingMenu
   dyeingManager: {fileID: 0}
-  windowManager: {fileID: 0}
-  dyeingMenuKey: DyeingMenu
