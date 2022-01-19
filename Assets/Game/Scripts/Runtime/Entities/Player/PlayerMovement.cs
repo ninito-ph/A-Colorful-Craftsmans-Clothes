@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ninito.UsualSuspects.Attributes;
+using UnityEngine;
 
 namespace Game.Runtime.Entities.Player
 {
@@ -15,6 +16,21 @@ namespace Game.Runtime.Entities.Player
 
         [SerializeField]
         private Animator[] animators;
+
+#if UNITY_EDITOR
+        [Header("Debugging Values")]
+        [SerializeField]
+        [ReadOnlyField]
+        private float hAxisInput;
+
+        [SerializeField]
+        [ReadOnlyField]
+        private float vAxisInput;
+
+        [SerializeField]
+        [ReadOnlyField]
+        private Vector3 movementPreview;
+#endif
 
         private static readonly int _horizontalAnimProperty = Animator.StringToHash("Horizontal");
         private static readonly int _verticalAnimProperty = Animator.StringToHash("Vertical");
@@ -38,6 +54,12 @@ namespace Game.Runtime.Entities.Player
                 movement.Normalize();
             }
 
+#if UNITY_EDITOR
+            hAxisInput = horizontal;
+            vAxisInput = vertical;
+            movementPreview = movement * speed * Time.fixedDeltaTime;
+#endif
+
             transform.Translate(movement * speed * Time.fixedDeltaTime);
             UpdateAnimatorValues(movement);
         }
@@ -56,7 +78,7 @@ namespace Game.Runtime.Entities.Player
             for (int index = 0; index < animators.Length; index++)
             {
                 if (animators[index].runtimeAnimatorController == null) continue;
-                
+
                 animators[index].SetFloat(_horizontalAnimProperty, movement.x);
                 animators[index].SetFloat(_verticalAnimProperty, movement.y);
                 animators[index].SetFloat(_speedAnimProperty, movement.sqrMagnitude);
