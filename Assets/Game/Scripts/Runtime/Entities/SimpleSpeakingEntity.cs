@@ -1,6 +1,7 @@
 ﻿using Game.Runtime.Systems.Dialogue;
 using Ninito.UsualSuspects.Interactable;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Runtime.Entities
 {
@@ -11,6 +12,11 @@ namespace Game.Runtime.Entities
     {
         #region Private Fields
 
+        [FormerlySerializedAs("_dialogueManager")]
+        [Header("Dependencies")]
+        [SerializeField]
+        private DialogueManager dialogueManager;
+        
         [Header("Configurations")]
         [SerializeField]
         [TextArea]
@@ -22,7 +28,6 @@ namespace Game.Runtime.Entities
         [SerializeField]
         private string interactionTooltip;
 
-        private DialogueManager _dialogueManager;
         private DialoguePassage[] _dialoguePassage;
 
         #endregion
@@ -56,7 +61,7 @@ namespace Game.Runtime.Entities
 
         public void InteractWithAs(IInteractor interactor)
         {
-            _dialogueManager.StartDialogue(_dialoguePassage, transform);
+            dialogueManager.StartDialogue(_dialoguePassage, transform);
         }
 
         #endregion
