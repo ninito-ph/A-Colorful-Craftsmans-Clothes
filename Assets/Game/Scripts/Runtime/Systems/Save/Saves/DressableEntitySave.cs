@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Game.Runtime.Systems.Save
+namespace Game.Runtime.Systems.Save.Saves
 {
     /// <summary>
     /// A class that holds permanent data regarding the DressableEntity component.
