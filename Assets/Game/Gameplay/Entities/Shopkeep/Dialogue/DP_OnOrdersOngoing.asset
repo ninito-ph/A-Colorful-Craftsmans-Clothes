@@ -13,11 +13,8 @@ MonoBehaviour:
   m_Name: DP_OnOrdersOngoing
   m_EditorClassIdentifier: 
   keysAndReplacements:
-    keyValueList:
-    - key: orderCount
-      value: '[DID NOT REPLACE]'
+    keyValueList: []
     keyCollision: 0
-  speakerName: Adam
-  text: Oh, hey George! Still picking the pigments? Fair enough. Don't take too long,
-    we've still got {orderCount} left! Once you've got the dyed clothes ready, bring
-    them to me!
+  speakerName: Joe
+  text: Still picking flowers? Alright, buckaroo, go get em! Just don't forget to
+    drop the clothes by when you have the time!

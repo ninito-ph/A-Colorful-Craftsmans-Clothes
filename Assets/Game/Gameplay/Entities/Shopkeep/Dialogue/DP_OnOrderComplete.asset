@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: DP_OnOrderComplete
   m_EditorClassIdentifier: 
   keysAndReplacements:
-    keyValueList:
-    - key: '{name}'
-      value: Joe
+    keyValueList: []
     keyCollision: 0
-  speakerName: Adam
-  text: Oh, this one turned out great! Excellent job! I'll put it up for sale!
+  speakerName: Joe
+  text: Oh, you brought something for me! Awesome work! I'll have some more orders
+    coming in soon enough, so be alert!
