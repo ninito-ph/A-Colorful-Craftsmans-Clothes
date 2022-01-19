@@ -46,7 +46,6 @@ namespace Game.Runtime.Core
 
         private void Start()
         {
-            DontDestroyOnLoad(gameObject);
             string sceneName = _sceneToLoad == String.Empty ? defaultSceneName : _sceneToLoad;
             
             if (loadAdditively)
