@@ -15,6 +15,6 @@ MonoBehaviour:
   keysAndReplacements:
     keyValueList: []
     keyCollision: 0
-  speakerName: Joe
-  text: Oh, you brought something for me! Awesome work! I'll have some more orders
-    coming in soon enough, so be alert!
+  SpeakerName: Mr.Shopkeep
+  InternalText: Oh, you've brought me something! Great job on these! Hope they didn't
+    give you too much trouble. We've got more orders coming, by the way!
