@@ -16,13 +16,17 @@ namespace Game.Runtime.Systems.Save.Saves
         [SerializeField]
         public List<string> Orders;
 
+        [SerializeField]
+        public int OrdersComplete;
+
         #endregion
 
         #region Constructors
 
-        public OrderManagerSave(List<string> orders)
+        public OrderManagerSave(List<string> orders, int ordersComplete)
         {
             Orders = orders;
+            OrdersComplete = ordersComplete;
         }
 
         #endregion
