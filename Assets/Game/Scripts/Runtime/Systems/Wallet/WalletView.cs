@@ -26,8 +26,8 @@ namespace Game.Runtime.Systems.Wallet
 
         private void OnEnable()
         {
-            wallet.WalletUpdated += UpdateBalanceDisplay;
-            UpdateBalanceDisplay();
+            if (wallet == null) return;
+            HandleWalletChange();
         }
 
         private void OnDisable()
@@ -37,7 +37,30 @@ namespace Game.Runtime.Systems.Wallet
 
         #endregion
 
+        #region Public Methods
+
+        /// <summary>
+        /// Binds the view to a wallet
+        /// </summary>
+        /// <param name="walletToBind">The wallet to bind the view to</param>
+        public void BindWallet(Wallet walletToBind)
+        {
+            wallet = walletToBind;
+            HandleWalletChange();
+        }
+
+        #endregion
+        
         #region Private Methods
+
+        /// <summary>
+        /// Handles a wallet change by subscribing to the wallet's event and updating the display
+        /// </summary>
+        private void HandleWalletChange()
+        {
+            wallet.WalletUpdated += UpdateBalanceDisplay;
+            UpdateBalanceDisplay();
+        }
 
         /// <summary>
         /// Updates the wallet's display with the current amount
