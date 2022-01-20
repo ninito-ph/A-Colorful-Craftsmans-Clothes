@@ -1,5 +1,4 @@
 using Game.Runtime.Entities.Player;
-using Ninito.MinJect.Injection;
 using Ninito.UsualSuspects;
 using UnityEditor;
 using UnityEngine;
@@ -14,7 +13,6 @@ namespace Game.Runtime.Core
     {
         #region Private Fields
 
-        private static Injector _injector;
         private PlayerInputHandler _inputHandler;
         private float _time;
 
@@ -24,7 +22,6 @@ namespace Game.Runtime.Core
 
         public GameObject Player { get; private set; }
 
-        public static Injector Injector => _injector ??= new Injector();
         public float LastSavedTime => _time;
 
         #endregion
@@ -106,7 +103,6 @@ namespace Game.Runtime.Core
         {
             Player = null;
             _inputHandler = null;
-            _injector = null;
         }
 
         /// <summary>
