@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Lucky Hat
   description: Oh my! A a five-leafed clover!
   graphic: {fileID: 21300000, guid: f87cf9d250d225a41b75f46d7cec7d72, type: 3}
+  value: 6
   Color: {r: 1, g: 1, b: 1, a: 1}
-  ID: -1
+  ID: 2
   animatorOverrideController: {fileID: 22100000, guid: 8ebb199d463278344838402021f7fcac, type: 2}
-  dyeCostMultiplier: 1.1
   type: 1
