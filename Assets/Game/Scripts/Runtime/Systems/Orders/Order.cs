@@ -23,6 +23,7 @@ namespace Game.Runtime.Systems.Orders
         
         // Look at the Store method for why I'm using LastSavedTime instead of Time.time
         public float RemainingTime => EndTime - GameManager.Instance.LastSavedTime;
+        public int Value => (int)(Item.Value * Item.ValueMultiplier);
 
         public bool IsExpired => GameManager.Instance.LastSavedTime >= EndTime;
         public bool IsCompleted { get; set; } = false;
@@ -92,8 +93,9 @@ namespace Game.Runtime.Systems.Orders
         public static Order Restore(string data, ItemRegistry registry)
         {
             if (String.IsNullOrEmpty(data)) return null;
-
             OrderSave save = JsonUtility.FromJson<OrderSave>(data);
+            if (save == null) return null;
+                
 
             Order order = CreateNew(ItemAttributes.Restore(save.StoredItem, registry) as ClothingAttributes,
                 save.RemainingTime,
