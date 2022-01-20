@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/Game/Outside/SA_Outside.unity
     guid: fd28a78b16208f9479fa8ba314cbf748
+  - enabled: 1
+    path: Assets/Game/Scenes/Game/Shop/SA_Shop.unity
+    guid: 7a8d7613a33793640afdc2f1a1cbf1e2
   m_configObjects: {}
