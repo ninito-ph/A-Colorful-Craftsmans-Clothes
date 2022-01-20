@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Witch Hat
   description: Fear the covenant!
   graphic: {fileID: 21300000, guid: a6ed0a23193d657499db9a1f5d131e3c, type: 3}
+  value: 5
   Color: {r: 1, g: 1, b: 1, a: 1}
   ID: 7
   animatorOverrideController: {fileID: 22100000, guid: 557950fe191b57d41baa56098cd9db90, type: 2}
-  dyeCostMultiplier: 1.5
   type: 1
