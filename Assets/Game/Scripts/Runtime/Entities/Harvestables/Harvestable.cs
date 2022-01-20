@@ -4,7 +4,7 @@ using Game.Runtime.Systems.Inventory;
 using Ninito.UsualSuspects.Interactable;
 using UnityEngine;
 
-namespace Game.Runtime.Entities
+namespace Game.Runtime.Entities.Harvestables
 {
     /// <summary>
     /// A class that controls a harvestable object
@@ -16,10 +16,13 @@ namespace Game.Runtime.Entities
 
         [Header("Properties")]
         [SerializeField]
-        private HarvestableAttributes attributes;
+        private HarvestableProvider harvestableProvider;
 
-        private SpriteRenderer _spriteRenderer;
+        private HarvestableAttributes _harvestableAttributes;
+
         private Collider2D _collider;
+        private SpriteRenderer _spriteRenderer;
+        
         private bool _isHarvested = false;
         private Coroutine _regrowthCoroutine;
 
@@ -31,18 +34,7 @@ namespace Game.Runtime.Entities
         {
             TryGetComponent(out _spriteRenderer);
             TryGetComponent(out _collider);
-        }
-
-        private void OnValidate()
-        {
-            if (attributes == null) return;
-
-            if (_spriteRenderer == null)
-            {
-                TryGetComponent(out _spriteRenderer);
-            }
-            
-            _spriteRenderer.sprite = attributes.Graphic;
+            DrawNewHarvestable();
         }
 
         #endregion
@@ -52,19 +44,19 @@ namespace Game.Runtime.Entities
         private void Harvest()
         {
             _spriteRenderer.sprite = null;
-            _collider.enabled = false;
             _isHarvested = true;
+            _collider.enabled = false;
             _regrowthCoroutine = StartCoroutine(Regrow());
 
-            if (attributes.HarvestEffect == null) return;
-            Instantiate(attributes.HarvestEffect, transform.position, Quaternion.identity);
+            if (_harvestableAttributes.HarvestEffect == null) return;
+            Instantiate(_harvestableAttributes.HarvestEffect, transform.position, Quaternion.identity);
         }
 
         private void UnHarvest()
         {
-            _spriteRenderer.sprite = attributes.Graphic;
-            _collider.enabled = true;
+            DrawNewHarvestable();
             _isHarvested = false;
+            _collider.enabled = true;
         }
 
         /// <summary>
@@ -72,21 +64,30 @@ namespace Game.Runtime.Entities
         /// </summary>
         private IEnumerator Regrow()
         {
-            yield return new WaitForSeconds(attributes.RespawnTime);
+            yield return new WaitForSeconds(_harvestableAttributes.RespawnTime);
             UnHarvest();
+        }
+
+        /// <summary>
+        /// Draws a new harvestable from the provider
+        /// </summary>
+        public void DrawNewHarvestable()
+        {
+            _harvestableAttributes = harvestableProvider.GetHarvestable();
+            _spriteRenderer.sprite = _harvestableAttributes.Graphic;
         }
 
         #endregion
 
         #region IInteractable Implementation
 
-        public string InteractionToolTip => "Press E to harvest " + attributes.Name;
+        public string InteractionToolTip => "Press E to harvest " + _harvestableAttributes.Name;
 
         public void InteractWithAs(IInteractor interactor)
         {
             if (_isHarvested) return;
             Harvest();
-            interactor.GameObject.GetComponent<InventoryProvider>().Contents.AddItem(attributes);
+            interactor.GameObject.GetComponent<InventoryProvider>().Contents.AddItem(_harvestableAttributes);
         }
 
         #endregion
