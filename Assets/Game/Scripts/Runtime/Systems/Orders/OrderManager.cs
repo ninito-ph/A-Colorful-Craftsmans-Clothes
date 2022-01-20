@@ -26,8 +26,6 @@ namespace Game.Runtime.Systems.Orders
         [SerializeField]
         private List<Order> _orders;
 
-        private int _ordersComplete = 0;
-
         private Coroutine _checkExpirationRoutine;
 
         #endregion
@@ -39,6 +37,8 @@ namespace Game.Runtime.Systems.Orders
             get => _orders;
             private set => _orders = value;
         }
+
+        public List<Order> CompleteOrders { get; set; } = new List<Order>();
 
         public Action OnOrdersUpdated { get; set; }
         public Action OnOrderCompleted { get; set; }
@@ -133,6 +133,7 @@ namespace Game.Runtime.Systems.Orders
         private void HandleCompleteOrder(int index)
         {
             if (index < 0 || index >= Orders.Count || !Orders[index].IsCompleted) return;
+            CompleteOrders.Add(Orders[index]);
             Orders.RemoveAt(index);
             OnOrdersUpdated?.Invoke();
             OnOrderCompleted?.Invoke();
@@ -144,7 +145,8 @@ namespace Game.Runtime.Systems.Orders
         private void Save()
         {
             List<string> orderStrings = _orders.Select(order => order.Store()).ToList();
-            OrderManagerSave save = new OrderManagerSave(orderStrings, _ordersComplete);
+            List<string> completeOrders = CompleteOrders.Select(order => order.Store()).ToList();
+            OrderManagerSave save = new OrderManagerSave(orderStrings, completeOrders);
             DataSaver.SaveData(save, nameof(OrderManager));
         }
 
@@ -155,12 +157,9 @@ namespace Game.Runtime.Systems.Orders
         private bool TryLoad()
         {
             if (!DataLoader.TryLoad(nameof(OrderManager), out OrderManagerSave save)) return false;
-            List<Order> orders = save.Orders
-                .Select(orderString => Order.Restore(orderString, orderGenerator.ItemRegistry))
-                .Where(order => order != null).ToList();
-            Orders = orders;
 
-            _ordersComplete = save.OrdersComplete;
+            Orders = RestoreOngoingOrders(save);
+            CompleteOrders = RestoreLastFiveCompleteOrders(save);
 
             if (Orders.All(order => order == null))
             {
@@ -169,6 +168,30 @@ namespace Game.Runtime.Systems.Orders
 
             OnOrdersUpdated?.Invoke();
             return true;
+        }
+
+        /// <summary>
+        /// Restores the last five complete orders through the given save
+        /// </summary>
+        /// <param name="save">The save to read from</param>
+        /// <returns>The last five or less complete orders</returns>
+        private List<Order> RestoreLastFiveCompleteOrders(OrderManagerSave save)
+        {
+            return save.LastFiveCompleteOrders
+                .Select(orderString => Order.Restore(orderString, orderGenerator.ItemRegistry))
+                .Where(order => order != null).ToList();
+        }
+
+        /// <summary>
+        /// Restores ongoing orders from the given save
+        /// </summary>
+        /// <param name="save">The save the read from</param>
+        /// <returns>The ongoing orders when the game was last saved</returns>
+        private List<Order> RestoreOngoingOrders(OrderManagerSave save)
+        {
+            return save.Orders
+                .Select(orderString => Order.Restore(orderString, orderGenerator.ItemRegistry))
+                .Where(order => order != null).ToList();
         }
 
         #endregion
