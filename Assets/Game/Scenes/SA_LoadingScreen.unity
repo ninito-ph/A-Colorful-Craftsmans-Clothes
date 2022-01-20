@@ -631,6 +631,7 @@ MonoBehaviour:
   loadText: {fileID: 0}
   loadingScreenDelay: 1.5
   loadAdditively: 1
+  defaultSceneName: SA_MainMenu
 --- !u!4 &2056474597
 Transform:
   m_ObjectHideFlags: 0
@@ -762,7 +763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4295840675694110392, guid: 633d4a03a0cc7c9498c35ef7dd4216fe, type: 3}
       propertyPath: m_FillAmount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5057699354568398930, guid: 633d4a03a0cc7c9498c35ef7dd4216fe, type: 3}
       propertyPath: m_Name
