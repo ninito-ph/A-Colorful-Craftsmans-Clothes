@@ -51,5 +51,19 @@ namespace Game.Runtime.Systems.Wallet
         }
 
         #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Checks whether the wallet hsa enough money to buy an item
+        /// </summary>
+        /// <param name="amount">The amount to check for</param>
+        /// <returns>Whether the wallet has enough money to buy a given item</returns>
+        public bool CanAfford(float amount)
+        {
+            return Balance >= amount;
+        }
+
+        #endregion
     }
 }
