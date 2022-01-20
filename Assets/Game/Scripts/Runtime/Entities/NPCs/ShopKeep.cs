@@ -2,6 +2,7 @@
 using Game.Runtime.Systems.Dialogue;
 using Game.Runtime.Systems.Inventory;
 using Game.Runtime.Systems.Orders;
+using Game.Runtime.Systems.Wallet;
 using Ninito.UsualSuspects.Interactable;
 using UnityEngine;
 
@@ -65,8 +66,11 @@ namespace Game.Runtime.Entities
         /// <returns>Whether any order was complete</returns>
         private bool ReceiveOrdersFrom(IInteractor interactor)
         {
+            InventoryProvider inventory = interactor.GameObject.GetComponent<InventoryProvider>();
+            Wallet wallet = interactor.GameObject.GetComponent<Wallet>();
+            
             int completedOrders =
-                _orderReceiver.TryCompleteOrders(interactor.GameObject.GetComponent<InventoryProvider>());
+                _orderReceiver.TryCompleteOrdersUsing(inventory, wallet);
 
             if (completedOrders > 0)
             {
