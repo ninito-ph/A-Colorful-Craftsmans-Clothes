@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Bluebell
   description: A blue Bluebell!
   graphic: {fileID: 4173296794092142881, guid: 05aca71ae87684949863318c6a51ae03, type: 3}
-  usable: 0
-  value: 1
-  respawnTime: 3
+  Color: {r: 1, g: 1, b: 1, a: 1}
+  ID: 9
+  respawnTime: {x: 30, y: 60}
   harvestEffect: {fileID: 999232185797658373, guid: 0ad86b251cfd8c846a49a7b7f0bb8858, type: 3}
