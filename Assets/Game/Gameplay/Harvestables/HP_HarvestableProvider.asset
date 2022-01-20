@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 256b156f2f3242d380bd562d22d4e123, type: 3}
-  m_Name: HR_HarvestableRegistryGlobal
+  m_Script: {fileID: 11500000, guid: 5bc89548b3434a10be3349337685a032, type: 3}
+  m_Name: HP_HarvestableProvider
   m_EditorClassIdentifier: 
-  Items:
+  existingHarvestables:
   - {fileID: 11400000, guid: 5115f608d3819514fa0d59c462ef09f5, type: 2}
+  - {fileID: 11400000, guid: 79eafcd5edd43114b93f67e7908022ce, type: 2}
   - {fileID: 11400000, guid: 1341885a56acb834bb9abfedd55f186d, type: 2}
   - {fileID: 11400000, guid: cdba810d76d807b41a8b63966942386c, type: 2}
-  - {fileID: 11400000, guid: 79eafcd5edd43114b93f67e7908022ce, type: 2}
