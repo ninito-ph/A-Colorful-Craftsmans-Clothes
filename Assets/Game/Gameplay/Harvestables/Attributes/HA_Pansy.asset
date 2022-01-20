@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Pansy
   description: A black Pansy!
   graphic: {fileID: -2732076569047555980, guid: 05aca71ae87684949863318c6a51ae03, type: 3}
+  value: 15
   Color: {r: 1, g: 1, b: 1, a: 1}
   ID: 12
   respawnTime: {x: 45, y: 90}
