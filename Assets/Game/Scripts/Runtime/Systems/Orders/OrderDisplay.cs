@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +18,12 @@ namespace Game.Runtime.Systems.Orders
 
         [SerializeField]
         private TMP_Text orderTime;
+
+        [SerializeField]
+        private TMP_Text orderValue;
+
+        [SerializeField]
+        private string orderValueAppend = "$";
 
         [SerializeField]
         private Image itemIcon;
@@ -64,6 +69,7 @@ namespace Game.Runtime.Systems.Orders
             itemIcon.color = Order.Item.Color;
             // ReSharper disable once SpecifyACultureInStringConversionExplicitly
             orderTime.text = GetFormattedOrderTime();
+            orderValue.text = Order.Value + orderValueAppend;
         }
 
         #endregion
