@@ -21,6 +21,9 @@ namespace Game.Runtime.Data.Attributes
         [FormerlySerializedAs("itemIcon")]
         private Sprite graphic;
 
+        [SerializeField]
+        private int value = 10;
+
         #endregion
 
         #region Public Fields
@@ -37,7 +40,8 @@ namespace Game.Runtime.Data.Attributes
         #region Properties
 
         public Sprite Graphic => graphic;
-
+        public int Value => value;
+        
         #endregion
 
         #region Public Methods
