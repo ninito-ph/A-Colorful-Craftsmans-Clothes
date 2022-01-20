@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Cowboy Hat
   description: Howdy, boy!
   graphic: {fileID: 21300000, guid: a839c6477bf209c458ab0b46cc5564b8, type: 3}
+  value: 5
   Color: {r: 1, g: 1, b: 1, a: 1}
   ID: 0
   animatorOverrideController: {fileID: 22100000, guid: 84b3294a2a6620f4e98949d107703bd0, type: 2}
-  dyeCostMultiplier: 1
   type: 1
