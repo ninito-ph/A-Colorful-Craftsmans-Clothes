@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Tutu
   description: A fancy wiggly Tutu!
   graphic: {fileID: 21300000, guid: 6bd5ddf21ee22624ca5a98a0bfeb3d51, type: 3}
+  value: 5
   Color: {r: 1, g: 1, b: 1, a: 1}
-  ID: -1
+  ID: 7
   animatorOverrideController: {fileID: 22100000, guid: bac6b5a30d739a14bae6a9cb88a6e9d4, type: 2}
-  dyeCostMultiplier: 1
   type: 0
