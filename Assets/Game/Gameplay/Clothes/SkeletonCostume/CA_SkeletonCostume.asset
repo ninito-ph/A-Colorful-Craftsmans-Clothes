@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Skeleton Costume
   description: Spooky scary skeletons!
   graphic: {fileID: 21300000, guid: bea220b3608130c44a8c18f6f5b949fb, type: 3}
+  value: 8
   Color: {r: 1, g: 1, b: 1, a: 1}
-  ID: -1
+  ID: 4
   animatorOverrideController: {fileID: 22100000, guid: 892e4311a497ae4428760e75ad3bc3cc, type: 2}
-  dyeCostMultiplier: 3
   type: 0
