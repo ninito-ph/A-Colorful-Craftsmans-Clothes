@@ -26,7 +26,7 @@ namespace Game.Runtime.Systems.Orders
         /// </summary>
         /// <param name="inventoryProvider">The inventory provider to check for order-completing items</param>
         /// <returns>The amount of complete orders</returns>
-        public int TryCompleteOrders(InventoryProvider inventoryProvider)
+        public int TryCompleteOrdersUsing(InventoryProvider inventoryProvider, Wallet.Wallet wallet)
         {
             List<Order> activeOrders = orderManager.Orders;
             int completedOrders = 0;
@@ -37,6 +37,7 @@ namespace Game.Runtime.Systems.Orders
                 ClothingAttributes adequateItem = GetMatchingClothingAttributes(inventoryProvider, activeOrders[index]);
 
                 if (!inventoryProvider.Contents.TryRemoveItem(adequateItem)) continue;
+                wallet.Balance += activeOrders[index].Value;
                 completedOrders++;
                 activeOrders[index].IsCompleted = true;
             }
