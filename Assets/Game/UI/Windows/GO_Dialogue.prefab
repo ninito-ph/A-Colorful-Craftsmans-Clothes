@@ -390,6 +390,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 7608754066974218424, guid: 6a5e0c532ab6feb4bb26c62532f965e9, type: 3}
+      propertyPath: m_Color.a
+      value: 0.6509804
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a5e0c532ab6feb4bb26c62532f965e9, type: 3}
 --- !u!224 &1133702673902615054 stripped
