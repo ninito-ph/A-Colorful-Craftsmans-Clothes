@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Game.Runtime.Systems.Orders;
 using UnityEngine;
 
@@ -17,16 +18,16 @@ namespace Game.Runtime.Systems.Save.Saves
         public List<string> Orders;
 
         [SerializeField]
-        public int OrdersComplete;
+        public List<string> LastFiveCompleteOrders;
 
         #endregion
 
         #region Constructors
 
-        public OrderManagerSave(List<string> orders, int ordersComplete)
+        public OrderManagerSave(List<string> orders, IEnumerable<string> completeOrders)
         {
             Orders = orders;
-            OrdersComplete = ordersComplete;
+            LastFiveCompleteOrders = completeOrders.Take(5).ToList();
         }
 
         #endregion
