@@ -813,8 +813,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1166912285}
+  - component: {fileID: 1166912288}
   - component: {fileID: 1166912284}
+  - component: {fileID: 1166912286}
   m_Layer: 0
   m_Name: Bootstrap
   m_TagString: Untagged
@@ -835,20 +836,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   postInitializeSceneName: SA_MainMenu
---- !u!4 &1166912285
-Transform:
+--- !u!114 &1166912286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166912283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b86cda03a6643088fdbf7d03de6915e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 87f5df5258de77043a1c767d8d0b6157, type: 2}
+  audioGroupNames:
+  - VolMaster
+  - VolSFX
+  - VolMusic
+--- !u!224 &1166912288
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166912283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 709.8529, y: 615.7288, z: -340.3938}
+  m_LocalPosition: {x: 0, y: 0, z: -340.3938}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 709.8529, y: 615.7288}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1193465229 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3820019154112840162, guid: 1f52e50e538599f4c910ba7a6a87d648, type: 3}
