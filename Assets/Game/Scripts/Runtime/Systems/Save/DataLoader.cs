@@ -21,6 +21,16 @@ namespace Game.Runtime.Systems.Save
         }
 
         /// <summary>
+        /// Loads data directly as a string
+        /// </summary>
+        /// <param name="saveKey">The key to load from</param>
+        /// <returns>The data saved to the key</returns>
+        public static string LoadDirect(string saveKey)
+        {
+            return HasData(saveKey) ? PlayerPrefs.GetString(saveKey) : null;
+        }
+
+        /// <summary>
         /// Checks whether the given key has data saved to it
         /// </summary>
         /// <param name="saveKey">The key to check</param>
