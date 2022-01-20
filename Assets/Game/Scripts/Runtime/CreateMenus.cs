@@ -52,5 +52,13 @@
         public const int ORDER_GENERATOR_ORDER = 0;
 
         #endregion
+
+        #region Harvestables
+
+        public const string HARVESTABLE_PROVIDER_FILENAME = "Harvestable Provider";
+        public const string HARVESTABLE_PROVIDER_MENUNAME = "Ninito/Game/Harvestable Provider";
+        public const int HARVESTABLE_PROVIDER_ORDER = 0;
+
+        #endregion
     }
 }
