@@ -604,7 +604,7 @@ PrefabInstance:
       objectReference: {fileID: 460600526}
     - target: {fileID: 4821443178584339415, guid: a24c61375f8441346a4ed17f73bfd35e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4821443178584339415, guid: a24c61375f8441346a4ed17f73bfd35e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -990,7 +990,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &640172835
 PrefabInstance:
@@ -1053,6 +1053,108 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d534ecf285db68c4eb90a65f8e4302d6, type: 3}
+--- !u!1001 &657452700
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 621064255520147856, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: orderManager
+      value: 
+      objectReference: {fileID: 1113205789}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.745283
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6007094
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.37732878
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: dialogue
+      value: Not sure I should buy another shirt or hat... My wardrobe won't even
+        fit anything anymore...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: speakerName
+      value: Bob McCustomer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 1801997395}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: interactionTooltip
+      value: Press E to talk to customer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457497, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.37465876
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457497, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5142234
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457497, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6886792
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457499, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Name
+      value: GO_GenericNPC
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
 --- !u!4 &677156245 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7253318471999268765, guid: fed7f98bc084ace40b802f5accd7420f, type: 3}
@@ -1301,7 +1403,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1064732033
 PrefabInstance:
@@ -5924,6 +6026,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e94e7b624a3bf6d47a35e9a68ffdbcdc, type: 3}
+--- !u!1 &1835166814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1377545435575547990, guid: 52e4ec98847599f4c8271afcac2da11f, type: 3}
+  m_PrefabInstance: {fileID: 1875197795}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1835166815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835166814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784b3481a1c74dcf8c76fe6d8871e59b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderManager: {fileID: 1113205789}
 --- !u!114 &1854741171 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1746611337552624641, guid: 1562759c5abb725408fe8c5727283eaa, type: 3}
@@ -6063,7 +6183,7 @@ PrefabInstance:
       objectReference: {fileID: 1028146099}
     - target: {fileID: 3152197258677420313, guid: ad275a96fe9768b4da367b5406d25fbe, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3152197258677420313, guid: ad275a96fe9768b4da367b5406d25fbe, type: 3}
       propertyPath: m_LocalPosition.x

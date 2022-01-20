@@ -815,6 +815,140 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f27c8d637ea79f4788c53d20470fa05, type: 3}
+--- !u!1001 &153881949
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 621064255520147856, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: orderManager
+      value: 
+      objectReference: {fileID: 1901967923}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7147683334152384443, guid: 7939379586e1373449e32f77ed67fc66, type: 3}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.41960785
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.79607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.35686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: dialogue
+      value: Ah! Can I interest you in a pot of gold? No? You're just looking for
+        flowers? Ah, I'm afraid I can't help you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: speakerName
+      value: Gnomish Hermit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 839897752}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: interactionTooltip
+      value: Press E to talk to Gnomish Hemit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190603144217055910, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Size.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190603144217055910, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Size.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190603144217055910, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 4678269054057029846, guid: bedc3dcba922c224fb13277a5e25ca92, type: 3}
+    - target: {fileID: 6190603144217055910, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.41823646
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190603144217055910, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190603144217055910, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.3563545
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190603144217055910, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -47.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457497, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.55974835
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457497, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6638876
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457497, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8396226
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457499, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Name
+      value: GO_GnomeMan
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
 --- !u!1001 &154394746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64883,6 +65017,112 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1002909724
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 621064255520147856, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: orderManager
+      value: 
+      objectReference: {fileID: 1901967923}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5736422055796001506, guid: 1a8788a4032c7b24b8de3e4e24eb44f8, type: 3}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6761006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6761006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: dialogue
+      value: Ugh! 15$! For a single flower! A FLOWER! They LITERALLY grow back 30
+        seconds after you pick them. Ridiculous!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: speakerName
+      value: Kevin O'Angry
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 839897752}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: interactionTooltip
+      value: Press E to talk to angry man
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457497, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.53333336
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457497, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7185047
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457497, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457499, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Name
+      value: GO_AngryNPC
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
 --- !u!4 &1015485706 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5904813813357865007, guid: 8dfaaea38ad3210479244b3ac6527ebe, type: 3}
@@ -84393,6 +84633,112 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07b009ec616e0cc4487a368e6dc665c7, type: 3}
+--- !u!1001 &1680862927
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 621064255520147856, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: orderManager
+      value: 
+      objectReference: {fileID: 1901967923}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -695254100011605987, guid: 017276f198be3ac4bb882bd6c07c32da, type: 3}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.68140393
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817717552444411359, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5080989
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: dialogue
+      value: Hey! Good day huh? Birds are singing... Flowers are blooming... Well...
+        At least they were until you picked them.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: speakerName
+      value: Mr. Arthur
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 839897752}
+    - target: {fileID: 5214951515593954702, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: interactionTooltip
+      value: Press E to talk to Mr. Arthur
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457478, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457497, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.b
+      value: 0.36003318
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457497, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.48720092
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457497, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745107463755457499, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
+      propertyPath: m_Name
+      value: GO_MrArthur
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc21de26872aa1f44bac88d0b617b54d, type: 3}
 --- !u!1001 &1681182823
 PrefabInstance:
   m_ObjectHideFlags: 0
