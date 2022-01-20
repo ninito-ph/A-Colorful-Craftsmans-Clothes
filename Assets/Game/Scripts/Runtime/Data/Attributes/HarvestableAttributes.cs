@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ninito.TheUsualSuspects.Attributes;
+using UnityEngine;
 
 namespace Game.Runtime.Data.Attributes
 {
@@ -12,8 +13,9 @@ namespace Game.Runtime.Data.Attributes
         #region Private Fields
 
         [Header("Harvestable Properties")]
+        [MinMaxSlider(1f, 600f)]
         [SerializeField]
-        private float respawnTime;
+        private Vector2 respawnTime = new Vector2(30f, 60f);
 
         [SerializeField]
         private GameObject harvestEffect;
@@ -22,7 +24,7 @@ namespace Game.Runtime.Data.Attributes
 
         #region Properties
 
-        public float RespawnTime => respawnTime;
+        public float RespawnTime => Random.Range(respawnTime.x, respawnTime.y);
         public GameObject HarvestEffect => harvestEffect;
 
         #endregion
