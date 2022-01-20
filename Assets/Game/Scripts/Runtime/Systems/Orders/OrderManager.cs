@@ -26,6 +26,8 @@ namespace Game.Runtime.Systems.Orders
         [SerializeField]
         private List<Order> _orders;
 
+        private int _ordersComplete = 0;
+
         private Coroutine _checkExpirationRoutine;
 
         #endregion
@@ -118,8 +120,7 @@ namespace Game.Runtime.Systems.Orders
         /// <returns>True if the order was expired, false if not</returns>
         private void HandleExpiredOrder(int index)
         {
-            if (index < 0 || index >= Orders.Count) return;
-            if (!Orders[index].IsExpired) return;
+            if (index < 0 || index >= Orders.Count || !Orders[index].IsExpired) return;
             Orders.RemoveAt(index);
             OnOrdersUpdated?.Invoke();
             OnOrderExpired?.Invoke();
@@ -131,8 +132,7 @@ namespace Game.Runtime.Systems.Orders
         /// <param name="index">The index of the order to check</param>
         private void HandleCompleteOrder(int index)
         {
-            if (index < 0 || index >= Orders.Count) return;
-            if (!Orders[index].IsCompleted) return;
+            if (index < 0 || index >= Orders.Count || !Orders[index].IsCompleted) return;
             Orders.RemoveAt(index);
             OnOrdersUpdated?.Invoke();
             OnOrderCompleted?.Invoke();
@@ -144,14 +144,14 @@ namespace Game.Runtime.Systems.Orders
         private void Save()
         {
             List<string> orderStrings = _orders.Select(order => order.Store()).ToList();
-            OrderManagerSave save = new OrderManagerSave(orderStrings);
+            OrderManagerSave save = new OrderManagerSave(orderStrings, _ordersComplete);
             DataSaver.SaveData(save, nameof(OrderManager));
         }
 
         /// <summary>
-        /// Loads all orders from
+        /// Loads all orders from the proper Save Key.
         /// </summary>
-        /// <returns>Whether anything was loaded</returns>
+        /// <returns>Whether anything was loaded from the Save Key</returns>
         private bool TryLoad()
         {
             if (!DataLoader.TryLoad(nameof(OrderManager), out OrderManagerSave save)) return false;
@@ -159,6 +159,8 @@ namespace Game.Runtime.Systems.Orders
                 .Select(orderString => Order.Restore(orderString, orderGenerator.ItemRegistry))
                 .Where(order => order != null).ToList();
             Orders = orders;
+
+            _ordersComplete = save.OrdersComplete;
 
             if (Orders.All(order => order == null))
             {
