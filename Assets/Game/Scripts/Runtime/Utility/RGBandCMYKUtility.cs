@@ -97,6 +97,16 @@ namespace Game.Runtime.Utility
                    IsNumberSimilar(colorA.g, colorB.g, tolerance) &&
                    IsNumberSimilar(colorA.b, colorB.b, tolerance);
         }
+        
+        /// <summary>
+        /// Gets the sum of all the color's components in CMYK space
+        /// </summary>
+        /// <param name="color">The color to check</param>
+        public static float GetSumOfColorComponentsInCMYK(Color color)
+        {
+            Vector4 cmykColor = ConvertRGBtoCMYK(color);
+            return cmykColor.x + cmykColor.y + cmykColor.z + cmykColor.w;
+        }
 
         #endregion
 
