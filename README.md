@@ -28,7 +28,7 @@
     <img src="https://i.imgur.com/naRcAJR.png" alt="A Colorful Craftsman's Clothes" width="350" height="350">
   </a>
  
-<h3 align="center">Sketch Fleets</h3>
+<h3 align="center">A Colorful Craftsman's Clothes</h3>
   <p align="center">
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/ninito-ph/A-Colorful-Craftsmans-Clothes">
   <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/ninito-ph/A-Colorful-Craftsmans-Clothes">
