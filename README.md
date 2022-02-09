@@ -38,7 +38,7 @@
   </p>
   
   <p align="center">
-    An arcade, bullet-hell space sketchbook given life!
+    A simulation game where you dye clothes and mix colors!
     <br />
     <a href="https://github.com/ninito-ph/A-Colorful-Craftsmans-Clothes/issues">Report Bug</a>
     ·
