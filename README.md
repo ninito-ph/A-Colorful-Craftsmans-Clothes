@@ -65,13 +65,6 @@
 
 This is a small project I did for a coding interview over 4 days. It was requested that I also pay attention to game design and art elements for the project. Notably, the art is taken from premade packs (Though I did modify certain things here and there).
 
-### Built With
-Tank Wrecks and its assets were built using the following software:
-* [Unity](https://unity.com/)
-* [Adobe Photoshop](https://www.adobe.com/products/photoshop.html)
-* [Audacity](https://www.audacityteam.org/)
-* [JetBrains Rider](https://www.jetbrains.com/rider/)
-
 
 
 <!-- GETTING STARTED -->
